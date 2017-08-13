@@ -1,5 +1,9 @@
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,6 +17,7 @@ public class FileHandler implements Runnable {
 	private File ignTXT;
 	private File fileTXT;
 	private int lID = 1;
+
 	public FileHandler(HelperUI helperUI, File workPath) {
 		ui = helperUI;
 		this.workPath = workPath;
@@ -30,7 +35,7 @@ public class FileHandler implements Runnable {
 					readAllFile(workPath);
 					writeFileTxt();
 					writeIgn();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			} else
@@ -85,28 +90,30 @@ public class FileHandler implements Runnable {
 					readAllFile(file);
 				}
 			} else {
-				if (file.getName().matches(".*\\.jpg|.*\\.gif|.*\\.png|.*\\.img|.*\\.JPEG|.*\\.JPG|.*\\.PNG|.*\\.jpeg|.*\\.GIF")) {
+				if (file.getName().matches(
+						".*\\.jpg|.*\\.gif|.*\\.png|.*\\.img|.*\\.JPEG|.*\\.JPG|.*\\.PNG|.*\\.jpeg|.*\\.GIF")) {
 					fileList.put(lID++, file.getAbsolutePath());
 				}
 			}
 		}
 	}
 
-	//读取当前工作目录下的其他子目录下的文件
+	// 读取当前工作目录下的其他子目录下的文件
 	private void readTempFile(File path) {
 		File[] files = path.listFiles();
 		for (File file : files) {
 			if (file.isDirectory()) {
 				poiRcd.put(lID, path.getAbsolutePath());
-					readTempFile(file);
+				readTempFile(file);
 			} else {
-				if (file.getName().matches(".*\\.jpg|.*\\.gif|.*\\.png|.*\\.img|.*\\.JPEG|.*\\.JPG|.*\\.PNG|.*\\.jpeg|.*\\.GIF")){
-					fileList.put(lID++, file.getAbsolutePath()+";;;sorted");
+				if (file.getName().matches(
+						".*\\.jpg|.*\\.gif|.*\\.png|.*\\.img|.*\\.JPEG|.*\\.JPG|.*\\.PNG|.*\\.jpeg|.*\\.GIF")) {
+					fileList.put(lID++, file.getAbsolutePath() + ";;;sorted");
 				}
 			}
 		}
 	}
-	
+
 	// 从fileList文件中将未分类的图片读取到内存
 	private void readInMem() {
 		BufferedReader bf;
@@ -119,7 +126,7 @@ public class FileHandler implements Runnable {
 					String[] temp = text.split(";;;");
 					if (temp.length == 2) { // 如果文件未分类，将目录加进位置列表，将文件添加到待分类列表
 						String name = temp[1];
-						if(!new File(name).exists()) 
+						if (!new File(name).exists())
 							continue;
 						path2 = name.substring(0, name.lastIndexOf("\\"));
 						if (path1 == null || !path1.equals(path2)) { // 添加新的目录所在位置
@@ -142,13 +149,13 @@ public class FileHandler implements Runnable {
 			dirList.add(name);
 		}
 	}
-	
+
 	public void removeDir(String name) {
-		if(dirList.contains(name)) {
+		if (dirList.contains(name)) {
 			dirList.remove(name);
 		}
 	}
-	
+
 	public ArrayList<String> getDir() {
 		return dirList;
 	}
@@ -163,7 +170,7 @@ public class FileHandler implements Runnable {
 					fw.write(text + "\n");
 				}
 				fw.close();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -182,7 +189,7 @@ public class FileHandler implements Runnable {
 					fw.write(id + ";;;" + filename + "\n");
 				}
 				fw.close();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -196,7 +203,7 @@ public class FileHandler implements Runnable {
 	// 标记已分类
 	public void markSorted(int id, String newPath) {
 		newPath += ";;;sorted";
-//		print("markedSorted: " + id + ":" + newPath);
+		// print("markedSorted: " + id + ":" + newPath);
 		fileList.put(id, newPath);
 	}
 
@@ -204,11 +211,11 @@ public class FileHandler implements Runnable {
 	public void removeMark(int id, String name) {
 		// String name = fileList.get(id);
 		// String nameNew = name.substring(0, name.indexOf(";;;sorted"));
-//		print("removedMark " + name);
+		// print("removedMark " + name);
 		fileList.put(id, name);
 	}
-	
-	//返回该图片是否已经分类
+
+	// 返回该图片是否已经分类
 	public boolean isSorted(int id) {
 		return fileList.get(id).contains(";;;sorted");
 	}
@@ -234,7 +241,7 @@ public class FileHandler implements Runnable {
 			fis.close();
 			srcFile.delete();
 			return dstFile;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -255,24 +262,26 @@ public class FileHandler implements Runnable {
 	// 更改工作区
 	public int changeWork(String newPath) {
 		if (newPath.contains(workPath.getAbsolutePath())) {
-//			print("changeWork: " + newPath + ":" + workPath.getAbsolutePath());
+			// print("changeWork: " + newPath + ":" +
+			// workPath.getAbsolutePath());
 			Iterator<Integer> it = poiRcd.keySet().iterator();
 			while (it.hasNext()) {
 				int cur = it.next();
 				String name = poiRcd.get(cur);
 				print("changeWork: " + name);
 				if (name.equals(newPath)) {
-//					print("changeWork: success: " + cur);
+					// print("changeWork: success: " + cur);
 					return cur;
 				}
 			}
 			int tID = lID;
 			readTempFile(new File(newPath));
-			if(tID == lID) return -2;
+			if (tID == lID)
+				return -2;
 			ui.loadWork(tID, getWorkLoad());
 			return 0;
 		}
-//		print("changeWork:failed");
+		// print("changeWork:failed");
 		return -1;
 
 	}
