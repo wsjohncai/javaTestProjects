@@ -1,10 +1,6 @@
 import java.io.IOException;
-import java.net.InetAddress;
-
 import jpcap.JpcapCaptor;
-import jpcap.JpcapSender;
 import jpcap.NetworkInterface;
-import jpcap.NetworkInterfaceAddress;
 import jpcap.PacketReceiver;
 import jpcap.packet.*;
 
@@ -25,23 +21,26 @@ public class DataCatcher {
 			JpcapCaptor captor = JpcapCaptor.openDevice(devices[nd], 1024, true, 10000);
 			captor.setFilter("tcp", true);
 
-//			ICMPPacket icmp = new ICMPPacket();
-//			icmp.type = 8;
-//			icmp.data = new byte[32];
-//			icmp.setIPv4Parameter(0, false, false, false, 0, false, true, false, 0, 0, 64, 1,
-//					InetAddress.getByName("192.168.155.2"), InetAddress.getByName("www.baidu.com"));
-//			JpcapSender sender = JpcapSender.openRawSocket();
-//			sender.sendPacket(icmp);
-			while(true) {
-			IPPacket p = (IPPacket) captor.getPacket();
-			if(p == null) continue;
-			byte[] data = p.header;
-			System.out.print("Source: "+p.src_ip.getHostAddress());
-			System.out.print("  Destination: "+p.dst_ip.getHostAddress()+"  ");
-			for (byte i : data) {
-				System.out.print(Integer.toHexString(i & 0xFF) + " ");
-			}
-			System.out.println("");
+			// ICMPPacket icmp = new ICMPPacket();
+			// icmp.type = 8;
+			// icmp.data = new byte[32];
+			// icmp.setIPv4Parameter(0, false, false, false, 0, false, true, false, 0, 0,
+			// 64, 1,
+			// InetAddress.getByName("192.168.155.2"),
+			// InetAddress.getByName("www.baidu.com"));
+			// JpcapSender sender = JpcapSender.openRawSocket();
+			// sender.sendPacket(icmp);
+			while (true) {
+				IPPacket p = (IPPacket) captor.getPacket();
+				if (p == null)
+					continue;
+				byte[] data = p.header;
+				System.out.print("Source: " + p.src_ip.getHostAddress());
+				System.out.print("  Destination: " + p.dst_ip.getHostAddress() + "  ");
+				for (byte i : data) {
+					System.out.print(Integer.toHexString(i & 0xFF) + " ");
+				}
+				System.out.println("");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

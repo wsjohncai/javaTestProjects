@@ -34,6 +34,7 @@ public class SearchCrawl implements Runnable {
 		return result;
 	}
 
+	@Override
 	public void run() {
 		// Æô¶¯ËÑË÷Ïß³Ì
 		crawl(startUrl, maxUrl, searchString, limitHost, caseSensitive);

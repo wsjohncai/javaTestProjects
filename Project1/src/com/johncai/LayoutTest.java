@@ -50,6 +50,7 @@ public class LayoutTest extends JFrame {
 		bt1 = new JButton("°´Å¥1");
 		bt1.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,16));
 		bt1.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				textfield.setText("");

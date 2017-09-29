@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -256,7 +257,7 @@ public class JFontChooser extends JPanel {
 		showTF = new JTextField();
 		showTF.setFont(new Font(current_fontName, current_fontStyle, current_fontSize));
 		showTF.setBounds(10, 10, 300, 50);
-		showTF.setHorizontalAlignment(JTextField.CENTER);
+		showTF.setHorizontalAlignment(SwingConstants.CENTER);
 		showTF.setText(showStr);
 		showTF.setBackground(Color.white);
 		showTF.setEditable(false);
@@ -283,6 +284,7 @@ public class JFontChooser extends JPanel {
 		// listener.....
 		/* 用户选择字体 */
 		fontList.addListSelectionListener(new ListSelectionListener() {
+			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				current_fontName = (String) fontList.getSelectedValue();
 				txtFont.setText(current_fontName);
@@ -292,6 +294,7 @@ public class JFontChooser extends JPanel {
 
 		/* 用户选择字型 */
 		styleList.addListSelectionListener(new ListSelectionListener() {
+			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				String value = (String) ((JList<?>) e.getSource()).getSelectedValue();
 				if (value.equals("常规")) {
@@ -313,8 +316,9 @@ public class JFontChooser extends JPanel {
 
 		/* 用户选择字体大小 */
 		sizeList.addListSelectionListener(new ListSelectionListener() {
+			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				current_fontSize = (Integer) sizeMap.get(sizeList.getSelectedValue());
+				current_fontSize = sizeMap.get(sizeList.getSelectedValue());
 				txtSize.setText(String.valueOf(current_fontSize));
 				showTF.setFont(new Font(current_fontName, current_fontStyle, current_fontSize));
 			}
@@ -322,14 +326,16 @@ public class JFontChooser extends JPanel {
 
 		/* 用户选择背景、字体颜色 */
 		bgcbColor.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				current_bgcolor = (Color) colorMap.get(bgcbColor.getSelectedItem());
+				current_bgcolor = colorMap.get(bgcbColor.getSelectedItem());
 				showTF.setBackground(current_bgcolor);
 			}
 		});
 		fcbColor.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				current_fcolor = (Color) colorMap.get(fcbColor.getSelectedItem());
+				current_fcolor = colorMap.get(fcbColor.getSelectedItem());
 				showTF.setForeground(current_fcolor);
 			}
 		});
@@ -360,6 +366,7 @@ public class JFontChooser extends JPanel {
 		});
 		/* 用户确定 */
 		ok.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				/* 用户用户选择的字体设置 */
 				setSelectedfont(new Font(current_fontName, current_fontStyle, current_fontSize));
@@ -373,6 +380,7 @@ public class JFontChooser extends JPanel {
 
 		/* 用户取消 */
 		cancel.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				dialog.dispose();
 				dialog = null;
@@ -392,6 +400,7 @@ public class JFontChooser extends JPanel {
 		dialog.addWindowListener(new WindowAdapter() {
 
 			/* 窗体关闭时调用 */
+			@Override
 			public void windowClosing(WindowEvent e) {
 				dialog.removeAll();
 				dialog.dispose();

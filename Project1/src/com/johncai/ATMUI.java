@@ -242,6 +242,7 @@ public class ATMUI {
 
 			// --监听重置按钮
 			reset_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent ae) {
 					// 清空卡号输入框、密码输入框和提示信息
 					loginCodeInput.setText("");
@@ -254,6 +255,7 @@ public class ATMUI {
 
 			// --监听登录按钮事件
 			login_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent ae) {
 					// 获取用户输入的卡号和密码
 					String code_str = loginCodeInput.getText();
@@ -334,6 +336,7 @@ public class ATMUI {
 
 			// 坚挺确定按钮事件
 			tunka_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent ae) {
 					// 退出
 					quit();
@@ -415,30 +418,35 @@ public class ATMUI {
 
 			// 监听按钮事件
 			chaxun_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showChaxun();
 				}
 			});
 
 			cunkuan_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showCunkuan();
 				}
 			});
 
 			qukuan_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showQukuan();
 				}
 			});
 
 			xiugai_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showXiugai();
 				}
 			});
 
 			quit_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					quit();
 				}
@@ -486,6 +494,7 @@ public class ATMUI {
 
 			// 监听返回按钮
 			fanhui_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}
@@ -546,6 +555,7 @@ public class ATMUI {
 
 			// 监听确认按钮事件
 			ck_yes.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					String ckin = ck_textfield.getText();
 					int ckmoney = 0;
@@ -569,6 +579,7 @@ public class ATMUI {
 
 			// 监听返回按钮事件
 			ck_cancel.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}
@@ -625,6 +636,7 @@ public class ATMUI {
 
 			// 监听返回按钮
 			fanhui_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}
@@ -684,6 +696,7 @@ public class ATMUI {
 
 			// 监听确认按钮事件
 			qk_yes.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					String qkin = qk_textfield.getText();
 					int qkmoney = 0;
@@ -711,6 +724,7 @@ public class ATMUI {
 
 			// 监听返回按钮事件
 			qk_cancel.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}
@@ -767,6 +781,7 @@ public class ATMUI {
 
 			// 监听返回按钮
 			fanhui_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}
@@ -851,6 +866,7 @@ public class ATMUI {
 
 			// 设置确认按钮监听
 			xg_yes.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					String oldins, newins, newcins;
 					oldins = new String(oldPass.getPassword());
@@ -887,6 +903,7 @@ public class ATMUI {
 
 			// 设置返回按钮监听
 			xg_cancel.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}
@@ -942,6 +959,7 @@ public class ATMUI {
 
 			// 监听返回按钮
 			fanhui_btn.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					showMenu();
 				}

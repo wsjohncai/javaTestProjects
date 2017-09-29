@@ -7,7 +7,7 @@ public class DBTest {
 	public static void main(String[] args) {
 		String user = "wsjohncai";
 		String passwd = "1092czg";
-		String url = "jdbc:mysql://localhost:3306/mysql?useSSL=false";
+		String url = "jdbc:mysql://localhost:3306/sys?useSSL=false";
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;
@@ -17,7 +17,7 @@ public class DBTest {
 			con=DriverManager.getConnection(url, user, passwd);
 			if(con!=null) {
 				st = con.createStatement();
-				String sql = "show tables;";
+				String sql = "show columns in sys_config;";
 				rs = st.executeQuery(sql);
 				while(rs.next())
 				System.out.println(rs.getString(1));

@@ -47,13 +47,15 @@ public class PicFrame extends JFrame {
  
         // 为窗体添加鼠标事件
         this.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(MouseEvent e) {
+            @Override
+			public void mouseReleased(MouseEvent e) {
                 isDragged = false;
                 // 为指定的光标设置光标图像
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
  
-            public void mousePressed(MouseEvent e) {
+            @Override
+			public void mousePressed(MouseEvent e) {
                 tmp = new Point(e.getX(), e.getY());
                 isDragged = true;
                 setCursor(new Cursor(Cursor.MOVE_CURSOR));
@@ -62,7 +64,8 @@ public class PicFrame extends JFrame {
  
         this.addMouseMotionListener(new MouseMotionAdapter() {
             // 鼠标按键在组件上按下并拖动时调用。
-            public void mouseDragged(MouseEvent e) {
+            @Override
+			public void mouseDragged(MouseEvent e) {
                 if (isDragged) {
                     loc = new Point(getLocation().x + e.getX() - tmp.x,
                             getLocation().y + e.getY() - tmp.y);

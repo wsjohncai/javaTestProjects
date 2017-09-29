@@ -23,6 +23,7 @@ class TicketWindow implements Runnable{
 		}
 	}
 	
+	@Override
 	public void run() {
 		while(true) {
 			if(ticket==0) break;
