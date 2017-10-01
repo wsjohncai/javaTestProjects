@@ -32,6 +32,7 @@ import com.wsjc.connection.FileRecv;
 import com.wsjc.connection.FileSend;
 import com.wsjc.connection.ListenBC;
 import com.wsjc.connection.SendDataPkg;
+import com.wsjc.connection.UserSeeker;
 import com.wsjc.data.Data;
 import com.wsjc.data.User;
 import com.wsjc.tools.ThreadMgr;
@@ -40,7 +41,7 @@ import com.wsjc.tools.UserMgr;
 /**
  * This application is used to transfer files in a LAN network
  * 
- * @version 1.0
+ * @version 1.1
  * @author WSJohnCai
  *
  */
@@ -87,18 +88,21 @@ public class FTView extends JFrame implements ActionListener {
 				@Override
 				public void windowClosing(WindowEvent e) {
 					FTView f = (FTView) ThreadMgr.getThread(ThreadMgr.FTVIEW);
-					if (ThreadMgr.threadSize() > 2) {
+					if (ThreadMgr.threadSize() > 3) {
 						int op = JOptionPane.showConfirmDialog(f, "还有任务正在进行，是否要退出？", "关闭", JOptionPane.YES_NO_OPTION);
 						if (op == JOptionPane.YES_OPTION) {
-							Data d = new Data(Data.LOG_OUT);
-							SendDataPkg send = new SendDataPkg(d);
-							send.sendBrocast();
+							LogoutMsg();
+							f.isRunning = false;
 							ThreadMgr.removeAll();
+							System.exit(0);
 						}
+					} else {
+						LogoutMsg();
+						ThreadMgr.removeAll();
+						f.isRunning = false;
+						f.dispose();
+						System.exit(0);
 					}
-					ThreadMgr.removeAll();
-					f.isRunning = false;
-					f.dispose();
 				}
 
 			});
@@ -128,11 +132,11 @@ public class FTView extends JFrame implements ActionListener {
 			send_btn = new JButton("发送");
 			send_btn.setEnabled(false);
 			send_btn.addActionListener(this);
-			recv_list.setMinimumSize(new Dimension(200, 25));
-			recv_list.setMaximumSize(new Dimension(200, 25));
-			recv_list.setPreferredSize(new Dimension(200, 25));
+			recv_list.setMinimumSize(new Dimension(300, 25));
+			recv_list.setMaximumSize(new Dimension(300, 25));
+			recv_list.setPreferredSize(new Dimension(300, 25));
 
-			recv_list.setFont(new Font("Consolas", Font.BOLD, 16));
+			recv_list.setFont(new Font("Consolas", Font.BOLD, 14));
 			recv_pl.add(recv_list);
 			recv_pl.add(send_btn);
 			backPane.add(recv_pl);
@@ -144,10 +148,11 @@ public class FTView extends JFrame implements ActionListener {
 			tfinfo_pl = new JPanel();
 			info_ta.setEditable(false);
 			info_ta.setLineWrap(true);
-			info_ta.setFont(new Font("Consolas", Font.PLAIN, 12));
-			info_ta.setMinimumSize(new Dimension(320, 150));
-			info_ta.setMaximumSize(new Dimension(320, 150));
-			info_ta.setPreferredSize(new Dimension(320, 150));
+			info_ta.setFont(new Font("宋体", Font.PLAIN, 12));
+			info_sc.setMinimumSize(new Dimension(350, 150));
+			info_sc.setMaximumSize(new Dimension(350, 150));
+			info_sc.setPreferredSize(new Dimension(350, 150));
+			info_sc.setAutoscrolls(true);
 			tfinfo_pl.add(info_sc);
 			backPane.add(tfinfo_pl);
 			backPane.add(Box.createVerticalStrut(3));
@@ -163,6 +168,7 @@ public class FTView extends JFrame implements ActionListener {
 			backPane.add(Box.createVerticalStrut(3));
 			backPane.add(tfinfo_pl);
 			backPane.add(Box.createVerticalStrut(3));
+			refreshUser();
 			Set<String> keys = bars.keySet();
 			for (String key : keys) {
 				ProgressBar bar = bars.get(key);
@@ -174,6 +180,7 @@ public class FTView extends JFrame implements ActionListener {
 		bg_pl.add(backPane);
 		bg_pl.setSize(backPane.getSize());
 		this.add(bg_pl);
+		this.setResizable(false);
 		this.setVisible(true);
 		this.validate();
 		this.pack();
@@ -181,24 +188,43 @@ public class FTView extends JFrame implements ActionListener {
 	}
 
 	/**
+	 * 发送离线消息
+	 */
+	private void LogoutMsg() {
+		Data d = null;
+		try {
+			d = new Data(Data.LOG_OUT, InetAddress.getLocalHost().getHostName());
+			SendDataPkg sender = (SendDataPkg) ThreadMgr.getThread("SendDataPkg");
+			if (sender == null) {
+				sender = new SendDataPkg();
+				ThreadMgr.add("SendDataPkg", sender);
+			}
+			sender.sendBrocast(d);
+		} catch (UnknownHostException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	/**
 	 * 用于从外部调用，刷新用户下拉单
 	 */
 	public void refreshUser() {
 		HashMap<String, User> users = UserMgr.getUsers();
-		if (users.size() > 0) {
-			send_btn.setEnabled(true);
-			Set<String> list = users.keySet();
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override
-				public void run() {
-					for (String item : list) {
-						if (item != null) {
-							recv_list.addItem(users.get(item).getAddr() + "-" + users.get(item).getHostName());
-						}
+		send_btn.setEnabled(true);
+		Set<String> list = users.keySet();
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				recv_list.removeAllItems();
+
+				for (String item : list) {
+					if (item != null) {
+						recv_list.addItem(users.get(item).getAddr() + "-" + users.get(item).getHostName());
 					}
 				}
-			});
-		} else
+			}
+		});
+		if (users.size() == 0)
 			send_btn.setEnabled(false);
 	}
 
@@ -211,20 +237,20 @@ public class FTView extends JFrame implements ActionListener {
 	 */
 	public boolean recvFile(String[] info) {
 		long length = Long.parseLong(info[1]);
-		float size;
-		float t;
+		double size;
+		double t;
 		String ssize;
-		if ((t = (float) (length / 1024 / 1024 / 1024)) >= 1) {
-			int i = (int) (t * 10);
-			size = (float) (i / 10.0);
+		if ((t = length * 10.0 / 1024 / 1024 / 1024) >= 1) {
+			int i = (int) t;
+			size = i * 1.0 / 10;
 			ssize = size + "GB";
-		} else if ((t = (float) (length / 1024 / 1024)) >= 1) {
-			int i = (int) (t * 10);
-			size = (float) (i / 10.0);
+		} else if ((t = length * 10.0 / 1024 / 1024) >= 1) {
+			int i = (int) t;
+			size = i * 1.0 / 10;
 			ssize = size + "MB";
-		} else if ((t = (float) (length / 1024)) >= 1) {
-			int i = (int) (t * 10);
-			size = (float) (i / 10.0);
+		} else if ((t = length * 10.0 / 1024) >= 1) {
+			int i = (int) t;
+			size = i * 1.0 / 10;
 			ssize = size + "KB";
 		} else {
 			ssize = length + "B";
@@ -232,6 +258,8 @@ public class FTView extends JFrame implements ActionListener {
 		String msg = "文件名：" + info[0] + "\n大小：" + ssize;
 		int op = JOptionPane.showConfirmDialog(this, msg, "接收文件", JOptionPane.OK_CANCEL_OPTION);
 		if (op == JOptionPane.OK_OPTION) {
+			// 测试
+			appendText("同意接收文件");
 			return true;
 		}
 		return false;
@@ -241,11 +269,12 @@ public class FTView extends JFrame implements ActionListener {
 		JFileChooser choose = new JFileChooser();
 		File file = null;
 		choose.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		choose.setSelectedFile(new File("%username%\\" + filename));
 		int op = choose.showSaveDialog(this);
 		if (op == JFileChooser.APPROVE_OPTION) { // 选择好了文件夹
 			File temp = choose.getSelectedFile();
 			if (temp.isDirectory()) // 如果选择的是文件夹
-				file = new File(temp.getAbsolutePath() + filename);
+				file = new File(temp.getAbsolutePath() + "\\" + filename);
 			else
 				file = temp;
 			if (file.exists()) { // 若文件存在
@@ -261,10 +290,12 @@ public class FTView extends JFrame implements ActionListener {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				return file;
 			}
 		} else { // 取消了文件选择框
 			return null;
 		}
+		appendText("选择文件出错！");
 		return null;
 	}
 
@@ -274,7 +305,8 @@ public class FTView extends JFrame implements ActionListener {
 	 * @param text
 	 */
 	public void appendText(String text) {
-		info_ta.append(text);
+		info_ta.append(text + "\n");
+		info_ta.setCaretPosition(info_ta.getText().length());
 	}
 
 	/**
@@ -321,6 +353,10 @@ public class FTView extends JFrame implements ActionListener {
 		}
 	}
 
+	public boolean getRunning() {
+		return isRunning;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == fc_btn) {
@@ -341,13 +377,21 @@ public class FTView extends JFrame implements ActionListener {
 			String[] user = recv_list.getSelectedItem().toString().split("-");
 			File file = new File(file_tf.getText());
 			if (file.exists()) { // 如果文件存在，则构建数据包并向选定用户发送请求
+				if (bars.containsKey(file.getName())) {
+					ProgressBar bar = bars.get(file.getName());
+					bar.requestFocus();
+					return;
+				}
 				Data data = new Data(Data.SEND_FILE, file.getName() + ";" + file.length());
 				try {
 					InetAddress ip = InetAddress.getByName(user[0]);
+					//测试
+					System.out.println(ip.getHostAddress()+", "+user[0]+", "+data.getTypeName()+", "+data.getData());
 					FileSend send = new FileSend(ip, file);
+					SendDataPkg sender = new SendDataPkg();
+					sender.sendPacket(data, ip);
+					appendText("等待向" + UserMgr.getUser(ip.getHostAddress()).getHostName() + "确认");
 					ThreadMgr.add("FileSend" + file.getName(), send);
-					SendDataPkg sender = new SendDataPkg(data, ip);
-					sender.sendPacket();
 				} catch (UnknownHostException e1) {
 					e1.printStackTrace();
 				}
@@ -364,25 +408,10 @@ public class FTView extends JFrame implements ActionListener {
 		view.initUI();
 		ThreadMgr.add(ThreadMgr.FTVIEW, view);
 		ListenBC bgThread = new ListenBC();
-		bgThread.start();
+		bgThread.init();
 		ThreadMgr.add(ThreadMgr.BGTHREAD, bgThread);
-		Thread t = new Thread(new Runnable() {
-			public void run() {
-				try {
-					while (view.isRunning) {
-						Thread.sleep(2000);
-						Data data = new Data(Data.REQUEST_CONNECT, InetAddress.getLocalHost().getHostName());
-						SendDataPkg sender = new SendDataPkg(data);
-						sender.sendBrocast();
-					}
-				} catch (UnknownHostException e) {
-					e.printStackTrace();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		t.start();
+		UserSeeker seeker = new UserSeeker();
+		seeker.start();
 	}
 
 }

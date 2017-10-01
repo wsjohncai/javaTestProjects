@@ -7,10 +7,11 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 import com.wsjc.data.Data;
+import com.wsjc.tools.BasicThread;
 import com.wsjc.tools.ThreadMgr;
 import com.wsjc.view.FTView;
 
-public class FileSend extends Thread {
+public class FileSend extends BasicThread {
 
 	private InetAddress ip;
 	private int port;
@@ -20,6 +21,7 @@ public class FileSend extends Thread {
 	private Socket socket = null;
 	private long totalLen;
 	private FTView view = (FTView) ThreadMgr.getThread(ThreadMgr.FTVIEW);
+	private boolean isShutdown = false;
 
 	public FileSend(InetAddress ip, File file) {
 		this.ip = ip;
@@ -37,12 +39,12 @@ public class FileSend extends Thread {
 		int read;
 		long length = 0;
 		int tper = -1, per = 0;
-		String output = "正在发送："+file.getName()+" "+"已完成";
+
+		String output = "正在发送：" + file.getName() + " " + "已完成";
 		try {
-			view.appendText("准备发送："+file.getAbsolutePath());
-			socket = new Socket(ip, port);
+			socket = new Socket(ip,port);
 			if (socket != null) {
-				view.appendText("正在发送："+file.getName()+"...");
+				view.appendText("确认接收：" + file.getName() + "...");
 				fis = new FileInputStream(file);
 				bos = new BufferedOutputStream(socket.getOutputStream());
 				while ((read = fis.read(buf)) != -1 && length < totalLen) {
@@ -50,45 +52,55 @@ public class FileSend extends Thread {
 					length += read;
 					per = (int) (length * 100 / totalLen);
 					if (tper != per) {
-						view.updateProgress(file, output+per+"%");
+						view.updateProgress(file, output + per + "%");
 					}
 					bos.flush();
 				}
-				if(length == totalLen) {
-					socket.shutdownOutput();
-					view.appendText(java.util.Calendar.getInstance().toString()+"："+"传输完成："+file.getAbsolutePath());
+				if (length == totalLen) {
+					view.appendText(
+							java.util.Calendar.getInstance().toString() + "：" + "传输完成：" + file.getAbsolutePath());
 					view.updateProgress(file, "发送成功");
+				} else {
+					view.appendText("文件传输出错，请重试！" + file.getAbsolutePath());
 				}
-				else {
-					view.appendText("文件传输出错，请重试！"+file.getAbsolutePath());
-				}
-				shutdown();
+			} else {
+				view.appendText("文件端口连接失败！");
+				SendDataPkg send = new SendDataPkg();
+				send.sendPacket(new Data(Data.ERROR, "FileRecv" + file.getName()), ip);
 			}
+
+			shutdown();
+			ThreadMgr.remove("FileSend" + file.getName());
 		} catch (Exception e) {
-			if(length<totalLen) {
-			Data d = new Data(Data.ERROR);
-			SendDataPkg send = new SendDataPkg(d, ip);
-			send.sendPacket();
-		}
+			if (length < totalLen) {
+				SendDataPkg send = new SendDataPkg();
+				send.sendPacket(new Data(Data.ERROR, "FileRecv" + file.getName()), ip);
+			}
+			shutdown();
+			ThreadMgr.remove("FileSend" + file.getName());
 			e.printStackTrace();
 		}
 	}
 
 	public void shutdown() {
-		try {
-			if(socket!=null) {
-				socket.close();
+		if (!isShutdown)
+			try {
+				ThreadMgr.remove("FileSend" + file.getName());
+				if (socket != null) {
+					socket.shutdownOutput();
+					socket.close();
+				}
+				if (bos != null) {
+					bos.close();
+				}
+				if (fis != null) {
+					fis.close();
+				}
+				isShutdown = true;
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			if(bos!=null) {
-				bos.close();
-			}
-			if(fis!=null) {
-				fis.close();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+
 	}
 
 }

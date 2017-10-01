@@ -3,79 +3,89 @@ package com.wsjc.connection;
 import java.io.IOException;
 import java.net.*;
 import com.wsjc.data.*;
+import com.wsjc.tools.BasicThread;
 import com.wsjc.tools.DataHandler;
+import com.wsjc.tools.ThreadMgr;
+import com.wsjc.view.FTView;
 
-public class SendDataPkg implements Runnable {
+public class SendDataPkg extends BasicThread {
 
-	private Data data = null;
 	private DatagramPacket packet;
-	
+	private FTView view = (FTView) ThreadMgr.getThread(ThreadMgr.FTVIEW);
+	private InetAddress bcip = null;
+	private MulticastSocket sock = null;
+
 	/**
-	 * 构造一个广播器
+	 * 构造一个发送器
 	 */
-	public SendDataPkg(Data data) {
-		this.data = data;
+	public SendDataPkg() {
 	}
-	
-	/**
-	 * 构造一个用于向特定地址发送的发送器
-	 * @param data 需要发送的数据包
-	 * @param ip 目标IP
-	 */
-	public SendDataPkg(Data data, InetAddress ip) {
-			byte[] d = new DataHandler(data).getSendData();
-			packet = new DatagramPacket(d, d.length, ip,6666);
+
+	public void shutdown() {
+		if (sock != null) {
+			try {
+				sock.leaveGroup(bcip);
+				sock.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-	
+
 	/**
 	 * 用广播地址发送一个数据包
 	 */
-	public void sendBrocast() {
-		if(data == null) return;
+	synchronized public void sendBrocast(Data data) {
+		if (data == null)
+			return;
 		DataHandler handler = new DataHandler(data);
 		byte[] d = handler.getSendData();
 		try {
-			packet = new DatagramPacket(d, d.length, InetAddress.getByName("255.255.255.255"),6666);
-			Thread t = new Thread(this);
-			t.start();
-			
+			bcip = InetAddress.getByName("224.0.5.5");
+			packet = new DatagramPacket(d, d.length, bcip, 6667);
+			if (sock == null) {
+				sock = new MulticastSocket();
+				sock.joinGroup(bcip);
+				sock.setLoopbackMode(false);
+				sock.setTimeToLive(1);
+			}
+			sock.send(packet);
+			// 测试用
+			// view.appendText("SendData广播包：类型："+data.getType()+", "+data.getData());
 		} catch (UnknownHostException e) {
-			System.out.println("广播地址不可用");
+			view.appendText("广播地址不可用");
 			e.printStackTrace();
+		} catch (IOException e) {
+			shutdown();
+			view.appendText("数据类型：" + data.getType() + "广播信息未正常发出！");
+			e.printStackTrace();
+		} finally {
+			ThreadMgr.remove("SendDataPkg");
 		}
 	}
-	
+
 	/**
 	 * 向特定地址发送单个数据包
 	 */
-	public void sendPacket() {
-		Thread t = new Thread(this);
-		t.start();
-	}
-
-	@Override
-	public void run() {
+	public void sendPacket(Data data, InetAddress ip) {
 		DatagramSocket s = null;
 		try {
+			byte[] d = new DataHandler(data).getSendData();
+			packet = new DatagramPacket(d, d.length, ip, 6666);
 			s = new DatagramSocket();
 			s.send(packet);
-		} catch (UnknownHostException e) {
-			System.out.println("广播地址不可用");
-			e.printStackTrace();
-		} catch (SocketException e) {
-			System.out.println("创建本地发送端口失败");
-			e.printStackTrace();
+			// 测试用
+			view.appendText("SendData"+": 向"+ip.getHostAddress()+" 发送，类型：" + data.getTypeName() + ",  " + data.getData());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if(s!=null)
+				if (s != null)
 					s.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
-		
 	}
 
 }

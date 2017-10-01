@@ -42,14 +42,35 @@ public class Data implements Serializable {
 	public int getType() {
 		return type;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public String getTypeName() {
+		String r = null;
+		switch(type) {
+		case 0:
+			r = "REQUEST_CONNECT";
+			break;
+		case 1:
+			r = "SEND_FILE";
+			break;
+		case 2:
+			r = "RECEIVE_FILE";
+			break;
+		case 3:
+			r = "REJECT_FILE";
+			break;
+		case 4:
+			r = "ERROR";
+			break;
+		case 5:
+			r = "LOG_OUT";
+			break;
+		case 6:
+			r = "REQUEST_REPLY";
+			break;
+		}
+		return r;
 	}
 	public String getData() {
 		return data;
-	}
-	public void setData(String data) {
-		this.data = data;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;

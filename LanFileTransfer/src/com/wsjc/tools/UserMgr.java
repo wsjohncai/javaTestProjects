@@ -14,6 +14,14 @@ public class UserMgr {
 		mgr.remove(key, mgr.get(key));
 	}
 	
+	public static User getUser(String ip) {
+		return mgr.get(ip);
+	}
+	
+	public static boolean hasUser(String key) {
+		return mgr.containsKey(key);
+	}
+	
 	public static HashMap<String, User> getUsers() {
 		return mgr;
 	}
