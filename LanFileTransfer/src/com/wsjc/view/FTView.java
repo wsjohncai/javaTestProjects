@@ -94,12 +94,13 @@ public class FTView extends JFrame implements ActionListener {
 							LogoutMsg();
 							f.isRunning = false;
 							ThreadMgr.removeAll();
+							f.dispose();
 							System.exit(0);
 						}
 					} else {
 						LogoutMsg();
-						ThreadMgr.removeAll();
 						f.isRunning = false;
+						ThreadMgr.removeAll();
 						f.dispose();
 						System.exit(0);
 					}

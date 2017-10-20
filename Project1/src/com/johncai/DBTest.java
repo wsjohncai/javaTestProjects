@@ -7,7 +7,7 @@ public class DBTest {
 	public static void main(String[] args) {
 		String user = "wsjohncai";
 		String passwd = "1092czg";
-		String url = "jdbc:mysql://localhost:3306/sys?useSSL=false";
+		String url = "jdbc:mysql://localhost:3306/mysql";
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;

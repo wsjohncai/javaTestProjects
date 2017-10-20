@@ -45,6 +45,8 @@ public class FileRecv extends BasicThread {
 				if (bis != null)
 					bis.close();
 				isShutdown = true;
+				if(view.getRunning() == false) 
+					ThreadMgr.remove("FileRecv"+file.getName());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -86,14 +88,12 @@ public class FileRecv extends BasicThread {
 				send.sendPacket(new Data(Data.ERROR, "FileSend" + file.getName()), ip);
 			}
 			shutdown();
-			ThreadMgr.remove("FileRecv" + file.getName());
 		} catch (IOException e) {
 			if (length < totalLen) {
 				SendDataPkg send = new SendDataPkg();
 				send.sendPacket(new Data(Data.ERROR, "FileSend" + file.getName()), ip);
 			}
 			shutdown();
-			ThreadMgr.remove("FileRecv" + file.getName());
 			e.printStackTrace();
 		}
 	}

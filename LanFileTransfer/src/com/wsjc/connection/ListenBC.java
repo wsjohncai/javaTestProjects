@@ -17,7 +17,7 @@ public class ListenBC extends BasicThread {
 
 	private DatagramSocket unids;
 	private MulticastSocket multids;
-	private boolean task = true;
+	private boolean task = false;
 	private FTView view = (FTView) ThreadMgr.getThread(ThreadMgr.FTVIEW);
 	private String BCIP = "224.0.5.5";
 	private int filePort = 6668;

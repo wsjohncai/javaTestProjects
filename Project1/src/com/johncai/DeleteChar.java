@@ -43,7 +43,6 @@ public class DeleteChar {
 			return;
 		}
 		Pattern p = null;
-		int i = 0;
 		String s1 = null;
 		BufferedReader bf = null;
 		

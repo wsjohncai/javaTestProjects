@@ -42,7 +42,7 @@ public class FileSend extends BasicThread {
 
 		String output = "正在发送：" + file.getName() + " " + "已完成";
 		try {
-			socket = new Socket(ip,port);
+			socket = new Socket(ip, port);
 			if (socket != null) {
 				view.appendText("确认接收：" + file.getName() + "...");
 				fis = new FileInputStream(file);
@@ -70,14 +70,12 @@ public class FileSend extends BasicThread {
 			}
 
 			shutdown();
-			ThreadMgr.remove("FileSend" + file.getName());
 		} catch (Exception e) {
 			if (length < totalLen) {
 				SendDataPkg send = new SendDataPkg();
 				send.sendPacket(new Data(Data.ERROR, "FileRecv" + file.getName()), ip);
 			}
 			shutdown();
-			ThreadMgr.remove("FileSend" + file.getName());
 			e.printStackTrace();
 		}
 	}
@@ -85,7 +83,6 @@ public class FileSend extends BasicThread {
 	public void shutdown() {
 		if (!isShutdown)
 			try {
-				ThreadMgr.remove("FileSend" + file.getName());
 				if (socket != null) {
 					socket.shutdownOutput();
 					socket.close();
@@ -97,6 +94,8 @@ public class FileSend extends BasicThread {
 					fis.close();
 				}
 				isShutdown = true;
+				if (!view.getRunning())
+					ThreadMgr.remove("FileSend" + file.getName());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
