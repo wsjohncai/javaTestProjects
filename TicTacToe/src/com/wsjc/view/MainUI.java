@@ -24,6 +24,8 @@ public class MainUI implements ActionListener {
 	private JRadioButton ai_first, hm_first;
 	private ButtonGroup group;
 	private JButton restart, backward;
+	private JLabel searchHint;
+	private JTextField searchDepth;
 	private int width = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
 	private int height = Toolkit.getDefaultToolkit().getScreenSize().height / 2;
 	private boolean isGameOn = false;
@@ -51,11 +53,16 @@ public class MainUI implements ActionListener {
 		restart.setActionCommand("restart");
 		backward = new JButton("悔棋");
 		backward.setActionCommand("backward");
+		searchHint = new JLabel("设置搜索深度");
+		searchDepth = new JTextField(10);
+		searchDepth.setText("4");
 		group = new ButtonGroup();
-		ai_first.setFont(new Font("隶书", Font.BOLD, 25));
-		hm_first.setFont(new Font("隶书", Font.BOLD, 25));
+		ai_first.setFont(new Font("隶书", Font.BOLD, 20));
+		hm_first.setFont(new Font("隶书", Font.BOLD, 20));
+		searchHint.setFont(new Font("隶书", Font.BOLD, 16));
+		searchDepth.setFont(new Font("隶书", Font.BOLD, 20));
 		restart.setFont(new Font("隶书", Font.BOLD, 25));
-		backward.setFont(new Font("隶书", Font.BOLD, 25));
+		backward.setFont(new Font("隶书", Font.BOLD, 20));
 		group.add(ai_first);
 		group.add(hm_first);
 		ai_first.addActionListener(this);
@@ -64,6 +71,8 @@ public class MainUI implements ActionListener {
 		backward.addActionListener(this);
 		leftPane.add(ai_first);
 		leftPane.add(hm_first);
+		leftPane.add(searchHint);
+		leftPane.add(searchDepth);
 		leftPane.add(restart);
 		leftPane.add(backward);
 		frame.add(leftPane, BorderLayout.WEST);
@@ -84,38 +93,40 @@ public class MainUI implements ActionListener {
 					int x = e.getX();
 					int y = e.getY();
 					int poi = y / (chessPanel.getHeight() / 3) * 3 + x / (chessPanel.getWidth() / 3);
-					chessPanel.putChess(poi, HM_Chess);
-					backward.setEnabled(true);
-					chessPanel.setEnabled(false);
-					if (!hasWinner())
-						AIStep(depth);
+					if (chessPanel.putChess(poi, HM_Chess) != ChessPanel.ALREADY_EXIT) {
+						backward.setEnabled(true);
+						chessPanel.setEnabled(false);
+						if (!hasWinner())
+							AIStep();
+					}
 				}
 			}
 		});
 		frame.add(chessPanel, BorderLayout.CENTER);
-
+		frame.setResizable(false);
 		frame.pack();
 		frame.setVisible(true);
 	}
 
 	/**
 	 * 判断是否产生了胜者
+	 * 
 	 * @return
 	 */
 	private boolean hasWinner() {
 		int winner = ChessPanel.checkResult(chessPanel.getMap());
 		if (winner == 0)
 			return false;
-		else if(winner == ChessPanel.NO_SPACE) {
-			finish();
-			return false;
-		}
+
 		finish();
 		int op;
 		if (winner == AI_Chess)
 			op = JOptionPane.showConfirmDialog(frame, "唉呀，你输了呢~再来一局吧？", "游戏结束", JOptionPane.YES_NO_OPTION);
+		else if (winner == ChessPanel.NO_SPACE)
+			op = JOptionPane.showConfirmDialog(frame, "你真厉害，和电脑平局了！再来一局？", "游戏结束", JOptionPane.YES_NO_OPTION);
 		else
 			op = JOptionPane.showConfirmDialog(frame, "恭喜！你胜利了！是否再来一局？", "游戏结束", JOptionPane.YES_NO_OPTION);
+
 		if (op == JOptionPane.YES_OPTION)
 			newGame();
 		return true;
@@ -126,8 +137,9 @@ public class MainUI implements ActionListener {
 		restart.setText("开始游戏");
 		hm_first.setEnabled(true);
 		ai_first.setEnabled(true);
+		searchDepth.setEnabled(true);
 	}
-	
+
 	/**
 	 * 开始新对局
 	 */
@@ -135,15 +147,21 @@ public class MainUI implements ActionListener {
 		isGameOn = !isGameOn;
 		chessPanel.init();
 		if (isGameOn) {
+			depth = Integer.parseInt(searchDepth.getText());
+			if (depth < 1 || depth > 9) {
+				JOptionPane.showMessageDialog(frame, "输入有误，" + "搜索范围应为1~9的整数，请重新输入！", "输入有误",
+						JOptionPane.ERROR_MESSAGE);
+			}
 			if (HM_Chess == ChessPanel.FIRSTHAND)
 				ishumanTurn = true;
 			else {
 				ishumanTurn = false;
-				AIStep(depth);
+				AIStep();
 			}
 			restart.setText("重新开始");
 			hm_first.setEnabled(false);
 			ai_first.setEnabled(false);
+			searchDepth.setEnabled(false);
 		} else {
 			finish();
 		}
@@ -151,9 +169,12 @@ public class MainUI implements ActionListener {
 
 	/**
 	 * 机器人落子
-	 * @param depth 设置搜索深度
+	 * 
+	 * @param depth
+	 *            设置搜索深度
 	 */
-	private void AIStep(int depth) {
+	private void AIStep() {
+		AI.setSearchDepth(depth);
 		int poi = AI.getNextStep(chessPanel.getMap());
 		if (poi == AIPutChess.NO_AVAILABLE_STEP) {
 			finish();
@@ -187,7 +208,7 @@ public class MainUI implements ActionListener {
 			int preStep = chessPanel.regret();
 			if (preStep == ChessPanel.LASTCHESS) {
 				if (AI_Chess == ChessPanel.FIRSTHAND)
-					AIStep(depth);
+					AIStep();
 				else {
 					backward.setEnabled(false);
 					chessPanel.setEnabled(true);

@@ -16,6 +16,7 @@ public class ChessPanel extends JPanel {
 	public static final int SECONDHAND = -1;
 	public static final int LASTCHESS = -2;
 	public static final int NO_SPACE = -3;
+	public static final int ALREADY_EXIT = -4;
 
 	private static final long serialVersionUID = 8195854421200688304L;
 	private int width, height;
@@ -81,12 +82,14 @@ public class ChessPanel extends JPanel {
 	 * 
 	 * @param poi
 	 */
-	public void putChess(int poi, int type) {
+	public int putChess(int poi, int type) {
 		if (!chessPoi.containsKey(poi)) {
 			chessPoi.put(poi, type);
 			saveSteps.add(poi);
 			repaintPanel();
-		}
+		} else 
+			return ALREADY_EXIT;
+		return 0;
 	}
 
 	/**

@@ -19,6 +19,10 @@ public class AIPutChess {
 		searchDepth = depth;
 	}
 
+	public void setSearchDepth(int depth) {
+		this.searchDepth = depth;
+	}
+	
 	/**
 	 * 得到棋局map的空格数量
 	 * 
@@ -252,15 +256,21 @@ public class AIPutChess {
 			else
 				return node.getPoi();
 		} else if (depth == 1) { //当走到高度为1时，获取当前棋盘的评估值并传给其父节点
+			Node parent = node.getParent();
 			int value = getInvestment(map,node.getType());
 
 			// System.out.println(
 			// "depth: " + depth + ", type: " + node.getType() + ", poi: " +
 			// node.getPoi() + ", value: " + value);
-
 			node.setValue(value);
 			node.setModified(true);
-			setParentValue(node);
+			if (parent != null) //当该节点为起始节点时，返回下一步的位置，否则将当前节点的评估值传给父节点
+				setParentValue(node);
+			else {
+				int [] steps = getAvailableStep(map);
+				node.setPoi(steps[0]);
+				return node.getPoi();
+			}
 		}
 		return NO_AVAILABLE_STEP;
 	}
