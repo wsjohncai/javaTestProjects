@@ -403,19 +403,19 @@ public class JFontChooser extends JPanel {
 	}
 
 	/* 测试使用 */
-//	public static void main(String[] args) {
-//		JFontChooser one = new JFontChooser(new Font("方正舒体", Font.BOLD, 18), Color.BLACK, Color.WHITE);
-//		// JFontChooser one = new JFontChooser(); //无参
-//		one.showDialog(null, 500, 200);
-//		// 获取选择的字体
-//		Font font = one.getSelectedfont();
-//		// 获取选择的颜色
-//		Color bgcolor = one.getBgselcolor();
-//		Color fcolor = one.getFselcolor();
-//		if (font != null && bgcolor != null &&fcolor!=null) {
-//			// 打印用户选择的字体和颜色
-//			System.out.println(font);
-//			System.out.println(fcolor+","+bgcolor);
-//		}
-//	}
+	public static void main(String[] args) {
+		JFontChooser one = new JFontChooser(new Font("方正舒体", Font.BOLD, 18), Color.BLACK, Color.WHITE);
+		// JFontChooser one = new JFontChooser(); //无参
+		one.showDialog(null, 500, 200);
+		// 获取选择的字体
+		Font font = one.getSelectedfont();
+		// 获取选择的颜色
+		Color bgcolor = one.getBgselcolor();
+		Color fcolor = one.getFselcolor();
+		if (font != null && bgcolor != null &&fcolor!=null) {
+			// 打印用户选择的字体和颜色
+			System.out.println(font);
+			System.out.println(fcolor+","+bgcolor);
+		}
+	}
 }
