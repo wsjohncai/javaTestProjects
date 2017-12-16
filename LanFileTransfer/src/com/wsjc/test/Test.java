@@ -1,24 +1,21 @@
 package com.wsjc.test;
 
-import static org.junit.Assert.*;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
-import java.io.File;
-
-import javax.swing.JFileChooser;
-
-import com.wsjc.view.FTView;
+import static com.sun.xml.internal.ws.policy.sourcemodel.wspolicy.XmlToken.Name;
 
 public class Test {
 
-	@org.junit.Test
-	public void test() {
-		JFileChooser ch = new JFileChooser();
-		ch.setSelectedFile(new File("%username%\\" + "mysql"));
-		int op = ch.showSaveDialog(null);
-		if (op == JFileChooser.APPROVE_OPTION) {
-			File temp = ch.getSelectedFile();
-			System.out.println(temp.getAbsolutePath());
-		} else System.out.println(ch.getSelectedFile());
-	}
+	public static void main(String[] args) {
+        try {
+            NetworkInterface in = NetworkInterface.getByName("wlan7");
+            System.out.println(in.toString());
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

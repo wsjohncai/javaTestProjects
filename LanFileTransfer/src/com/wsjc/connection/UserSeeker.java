@@ -10,7 +10,7 @@ import com.wsjc.view.FTView;
 public class UserSeeker extends Thread {
 
 	private FTView view;
-	SendDataPkg sender = null;
+	private SendDataPkg sender = null;
 
 	public UserSeeker() {
 		view = (FTView) ThreadMgr.getThread(ThreadMgr.FTVIEW);
@@ -28,9 +28,7 @@ public class UserSeeker extends Thread {
 				sender.sendBrocast(data);
 				Thread.sleep(5000);
 			}
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (UnknownHostException | InterruptedException e) {
 			e.printStackTrace();
 		}
 	}

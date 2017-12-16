@@ -2,8 +2,8 @@ package com.wsjohncai.tool;
 
 import java.util.Vector;
 
-import com.wsjohncai.common.JCB;
 import com.wsjohncai.view.DispatcherView;
+import com.wsjohncai.common.JCB;
 
 public class DispatcherThread extends Thread {
 	private MyTableModel model;

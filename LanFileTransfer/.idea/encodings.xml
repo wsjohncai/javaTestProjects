@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/connection/FileRecv.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/connection/FileSend.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/connection/ListenBC.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/connection/SendDataPkg.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/connection/UserSeeker.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/data/Data.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/data/User.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/test/Test.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/tools/BasicThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/tools/DataHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/tools/ThreadMgr.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/tools/UserMgr.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/wsjc/view/FTView.java" charset="GBK" />
+  </component>
+</project>

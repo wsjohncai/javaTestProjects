@@ -1,4 +1,4 @@
-package com.wsjohncai.view;
+package com.wsjohncai.tool;
 
 import java.util.Vector;
 
@@ -10,7 +10,7 @@ import com.wsjohncai.logic.Algorithm;
 public class MyTableModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = 2039423832353747535L;
-	private static final String[] colNames = { "×÷ÒµÃû", "Ìá½»Ê±¼ä", "·şÎñĞèÊ±", "¿ªÊ¼Ê±¼ä", "×´Ì¬", "Í£Ö¹Ê±¼ä", "ÖÜ×ªÊ±¼ä", "´øÈ¨ÖÜ×ªÊ±¼ä" };
+	private static final String[] colNames = { "ä½œä¸šå", "æäº¤æ—¶é—´", "æœåŠ¡éœ€æ—¶", "å¼€å§‹æ—¶é—´", "çŠ¶æ€", "åœæ­¢æ—¶é—´", "å‘¨è½¬æ—¶é—´", "å¸¦æƒå‘¨è½¬æ—¶é—´" };
 	private static Vector<String> columnNames = new Vector<String>();
 	private Vector<JCB> queue;
 
@@ -20,7 +20,7 @@ public class MyTableModel extends AbstractTableModel {
 		}
 		queue = new Vector<>();
 		for (int i = 0; i < 5; i++) {
-			JCB j = new JCB("×÷Òµ" + i, 2 + 3 * i, (int) (Math.random() * 10 + 1));
+			JCB j = new JCB("ä½œä¸š" + i, 2 + 3 * i, (int) (Math.random() * 10 + 1));
 			queue.add(j);
 		}
 	}
@@ -92,39 +92,39 @@ public class MyTableModel extends AbstractTableModel {
 			return job.getTime_required();
 		case 3:
 			if (job.getStatus() == JCB.NOT_EXIST || job.getStatus() == JCB.COMMITTED)
-				return "Î´¿ªÊ¼";
+				return "æœªå¼€å§‹";
 			else
 				return job.getStart_time();
 
 		case 4:
 			int status = job.getStatus();
-			String statusString = "´íÎó";
+			String statusString = "é”™è¯¯";
 			switch (status) {
 			case JCB.NOT_EXIST:
-				statusString = "Î´Ìá½»";
+				statusString = "æœªæäº¤";
 				break;
 			case JCB.COMMITTED:
-				statusString = "µÈ´ıµ÷¶È";
+				statusString = "ç­‰å¾…è°ƒåº¦";
 				break;
 			case JCB.RUNNING:
-				statusString = "ÔËĞĞÖĞ";
+				statusString = "è¿è¡Œä¸­";
 				break;
 			case JCB.FINISHED:
-				statusString = "ÒÑ½áÊø";
+				statusString = "å·²ç»“æŸ";
 			}
 			return statusString;
 
 		case 5:
 			if (job.getStatus() == JCB.NOT_EXIST)
-				return "Î´ÔËĞĞ½áÊø";
+				return "æœªè¿è¡Œç»“æŸ";
 			return job.getStop_time();
 		case 6:
 			if (job.getTime_required() > 0)
-				return "Î´ÔËĞĞ½áÊø";
+				return "æœªè¿è¡Œç»“æŸ";
 			return job.getTurnaround_time();
 		case 7:
 			if (job.getTime_required() > 0)
-				return "Î´ÔËĞĞ½áÊø";
+				return "æœªè¿è¡Œç»“æŸ";
 			return job.getWeigh_turnaround_time();
 		}
 		return null;
