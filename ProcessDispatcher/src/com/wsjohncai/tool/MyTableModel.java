@@ -1,133 +1,135 @@
 package com.wsjohncai.tool;
 
+import java.util.Arrays;
 import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;
 
-import com.wsjohncai.common.JCB;
-import com.wsjohncai.logic.Algorithm;
+import com.wsjohncai.common.PCB;
 
 public class MyTableModel extends AbstractTableModel {
 
-	private static final long serialVersionUID = 2039423832353747535L;
-	private static final String[] colNames = { "作业名", "提交时间", "服务需时", "开始时间", "状态", "停止时间", "周转时间", "带权周转时间" };
-	private static Vector<String> columnNames = new Vector<String>();
-	private Vector<JCB> queue;
+    private static final long serialVersionUID = 2039423832353747535L;
+    private static final String[] colNames = {"进程名", "提交时间", "服务需时","优先级", "开始时间", "停止时间", "状态"};
+    private static Vector<String> columnNames = new Vector<>();
+    private Vector<PCB> queue;
 
-	public MyTableModel() {
-		for (String s : colNames) {
-			columnNames.add(s);
-		}
-		queue = new Vector<>();
-		for (int i = 0; i < 5; i++) {
-			JCB j = new JCB("作业" + i, 2 + 3 * i, (int) (Math.random() * 10 + 1));
-			queue.add(j);
-		}
-	}
+    public MyTableModel() {
+        columnNames.addAll(Arrays.asList(colNames));
+        queue = new Vector<>();
+        //初始化数据
+        for (int i = 0; i < 5; i++) {
+            int r = (int) (Math.random() * 10);
+            int r1 = (int) (Math.random() * 5);
+            PCB p = new PCB("进程" + i, r+r1 , r*r1+1, r1+1);
+            queue.add(p);
+        }
+    }
 
-	public void setDataToDefault() {
-		for (JCB j : queue) {
-			if (j.getStatus() == JCB.RUNNING || j.getStatus() == JCB.FINISHED)
-				j.setTime_required(j.getTime_required() + j.getStop_time() - j.getStart_time());
-			j.setStart_time(0);
-			j.setStatus(JCB.NOT_EXIST);
-			j.setStop_time(0);
-			j.setTurnaround_time(0);
-			j.setWeigh_turnaround_time(0);
-		}
-	}
+    /**
+     * 将数据重置为初始状态
+     */
+    public void setDataToDefault() {
+        for (PCB p : queue) {
+            p.setTime_req_left(p.getTime_req());
+            p.setStart_time(0);
+            p.setStatus(PCB.NOT_EXIST);
+            p.setStop_time(0);
+        }
+    }
 
-	public void addJob(JCB job) {
-		if (queue == null)
-			queue = new Vector<>();
-		queue.add(job);
-	}
+    //添加一个新进程到队列中
+    public void addProc(PCB proc) {
+        if (queue == null)
+            queue = new Vector<>();
+        queue.add(proc);
+    }
 
-	public boolean deleteJob(int idx) {
-		JCB j = queue.get(idx);
-		if (j.getStatus() != JCB.RUNNING) {
-			queue.remove(idx);
-			return true;
-		}
-		return false;
-	}
+    /**
+     * 删除指定索引的进程
+     */
+    public boolean deleteProc(int idx) {
+        PCB p = queue.get(idx);
+        if (p.getStatus() != PCB.RUNNING) {
+            queue.remove(idx);
+            return true;
+        }
+        return false;
+    }
 
-	public JCB getNextJob(int al) {
-		return new Algorithm().getNextJob(queue, al);
-	}
+    /**
+     * 获得数据存储队列
+     */
+    public Vector<PCB> getQueue() {
+        return queue;
+    }
 
-	public Vector<JCB> getQueue() {
-		return queue;
-	}
+    @Override
+    public int getRowCount() {
+        return queue.size();
+    }
 
-	@Override
-	public int getRowCount() {
-		return queue.size();
-	}
+    @Override
+    public int getColumnCount() {
+        return columnNames.size();
+    }
 
-	@Override
-	public int getColumnCount() {
-		return columnNames.size();
-	}
+    @Override
+    public String getColumnName(int columnIndex) {
+        return columnNames.get(columnIndex);
+    }
 
-	@Override
-	public String getColumnName(int columnIndex) {
-		return columnNames.get(columnIndex);
-	}
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return false;
+    }
 
-	@Override
-	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		return false;
-	}
+    /**
+     * 设置不同状态Table的返回值
+     */
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        PCB proc = queue.get(rowIndex);
+        switch (columnIndex) {
+            case 0:
+                return proc.getName();
+            case 1:
+                return proc.getSummit_time();
+            case 2:
+                return proc.getTime_req_left();
+            case 3:
+                return proc.getPriority();
+            case 4:
+                if (proc.getStatus() == PCB.NOT_EXIST)
+                    return "未开始";
+                else if(proc.getStatus() == PCB.COMMITTED && proc.getStart_time() == 0)
+                    return "未开始";
+                else
+                    return proc.getStart_time();
+            case 6:
+                int status = proc.getStatus();
+                String statusString = "错误";
+                switch (status) {
+                    case PCB.NOT_EXIST:
+                        statusString = "未提交";
+                        break;
+                    case PCB.COMMITTED:
+                        statusString = "等待调度";
+                        break;
+                    case PCB.RUNNING:
+                        statusString = "运行中";
+                        break;
+                    case PCB.FINISHED:
+                        statusString = "已结束";
+                }
+                return statusString;
 
-	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
-		JCB job = queue.get(rowIndex);
-		switch (columnIndex) {
-		case 0:
-			return job.getName();
-		case 1:
-			return job.getSummit_time();
-		case 2:
-			return job.getTime_required();
-		case 3:
-			if (job.getStatus() == JCB.NOT_EXIST || job.getStatus() == JCB.COMMITTED)
-				return "未开始";
-			else
-				return job.getStart_time();
-
-		case 4:
-			int status = job.getStatus();
-			String statusString = "错误";
-			switch (status) {
-			case JCB.NOT_EXIST:
-				statusString = "未提交";
-				break;
-			case JCB.COMMITTED:
-				statusString = "等待调度";
-				break;
-			case JCB.RUNNING:
-				statusString = "运行中";
-				break;
-			case JCB.FINISHED:
-				statusString = "已结束";
-			}
-			return statusString;
-
-		case 5:
-			if (job.getStatus() == JCB.NOT_EXIST)
-				return "未运行结束";
-			return job.getStop_time();
-		case 6:
-			if (job.getTime_required() > 0)
-				return "未运行结束";
-			return job.getTurnaround_time();
-		case 7:
-			if (job.getTime_required() > 0)
-				return "未运行结束";
-			return job.getWeigh_turnaround_time();
-		}
-		return null;
-	}
+            case 5:
+                if (proc.getStatus() != PCB.FINISHED)
+                    return "未运行结束";
+                return proc.getStop_time();
+        }
+        return null;
+    }
 
 }

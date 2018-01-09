@@ -1,5 +1,7 @@
 package com.wsjohncai.view;
 
+import com.wsjohncai.tool.DispatcherThread;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-
-import com.wsjohncai.logic.Algorithm;
 
 public class StartDialog extends JDialog implements ActionListener{
 	private static final long serialVersionUID = 3935880619257483913L;
@@ -52,11 +52,11 @@ public class StartDialog extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == bt1) 
-			parent.startDispatch(Algorithm.AL_FCFS);
+			parent.startDispatch(DispatcherThread.AL_FCFS);
 		else if(e.getSource() == bt2)
-			parent.startDispatch(Algorithm.AL_SJF);
+			parent.startDispatch(DispatcherThread.AL_SJF);
 		else 
-			parent.startDispatch(Algorithm.AL_HRN);
+			parent.startDispatch(DispatcherThread.AL_HRN);
 		dispose();
 	}
 }

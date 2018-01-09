@@ -9,15 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 import com.wsjohncai.common.JCB;
 import com.wsjohncai.tool.DispatcherThread;
@@ -30,10 +22,10 @@ public class DispatcherView extends JFrame implements ActionListener {
     private static int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 
     public static int TIME = 0;
-    private JPanel waiting_pane, op_pane;
+    private JPanel waiting_pane, op_pane, btn_pane;
     private JTable waiting_table;
     private JScrollPane waiting_scroll;
-    private JButton summit, execute, stop, pause, delete;
+    private JButton summit, execute, stop, pause, delete, speedup;
     private JLabel ta, wta, time;
     private MyTableModel model;
     public boolean isPaused = false;
@@ -55,7 +47,7 @@ public class DispatcherView extends JFrame implements ActionListener {
 
     private void createUI() {
         this.setTitle("作业调度模拟");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setSize(width / 5 * 2, 310);
         this.setResizable(false);
 
@@ -104,6 +96,10 @@ public class DispatcherView extends JFrame implements ActionListener {
         delete.setToolTipText("删除选定的作业");
         delete.setActionCommand("del");
         delete.addActionListener(this);
+        speedup = new JButton("加速 X1");
+        speedup.setActionCommand("speedup");
+        speedup.addActionListener(this);
+        btn_pane = new JPanel();
         op_pane = new JPanel(null);
         op_pane.setPreferredSize(new Dimension(this.getWidth() - 50, this.getHeight() - waiting_pane.getHeight() - 20));
         op_pane.add(time);
@@ -115,16 +111,14 @@ public class DispatcherView extends JFrame implements ActionListener {
         op_pane.add(wta);
         wta.setBounds(this.getWidth() / 5 * 3, 5, this.getWidth() / 5 * 2 - 20, 30);
         wta.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        op_pane.add(summit);
-        op_pane.add(delete);
-        op_pane.add(execute);
-        op_pane.add(pause);
-        op_pane.add(stop);
-        summit.setBounds(20, 40, this.getWidth() / 6, 30);
-        delete.setBounds(20 + this.getWidth() / 6, 40, this.getWidth() / 6, 30);
-        execute.setBounds(20 + this.getWidth() / 3, 40, this.getWidth() / 6, 30);
-        pause.setBounds(20 + this.getWidth() / 2, 40, this.getWidth() / 6, 30);
-        stop.setBounds(20 + this.getWidth() / 3 * 2, 40, this.getWidth() / 6, 30);
+        btn_pane.add(summit);
+        btn_pane.add(delete);
+        btn_pane.add(execute);
+        btn_pane.add(pause);
+        btn_pane.add(stop);
+        btn_pane.add(speedup);
+        op_pane.add(btn_pane);
+        btn_pane.setBounds(0, 32, this.getWidth(), 40);
         this.add(op_pane, BorderLayout.CENTER);
 
         this.setLocation(width / 2 - this.getWidth() / 2, height / 2 - this.getHeight() / 2);
@@ -132,9 +126,11 @@ public class DispatcherView extends JFrame implements ActionListener {
         this.validate();
     }
 
-    public void setFinal() {
+    public void updateAfterAJob() {
         Vector<JCB> q = model.getQueue();
-        int t1 = 0, t2 = 0, count = 0;
+        double t1 = 0;
+        double t2 = 0;
+        int count = 0;
         for (JCB j : q) {
             if (j.getStatus() != JCB.FINISHED)
                 continue;
@@ -146,16 +142,18 @@ public class DispatcherView extends JFrame implements ActionListener {
         wta.setText("平均带权周转时间：" + t2 * 1.0 / count);
     }
 
+    public void setStopped() {
+        isStopped = true;
+        speedup.setText("加速 X1");
+        speedup.setEnabled(false);
+        dispatcher = null;
+        execute.setEnabled(true);
+    }
+
     public void updateCurTime() {
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                time.setText("当前时间: " + TIME);
-                model.fireTableDataChanged();
-                setFinal();
-            }
-
+        SwingUtilities.invokeLater(() -> {
+            time.setText("当前时间: " + TIME);
+            model.fireTableDataChanged();
         });
     }
 
@@ -165,8 +163,25 @@ public class DispatcherView extends JFrame implements ActionListener {
     }
 
     void startDispatch(int al) {
-        dispatcher = new DispatcherThread(this, model, al);
+        dispatcher = new DispatcherThread(this, model.getQueue(), al);
         dispatcher.start();
+        isStopped = false;
+        execute.setEnabled(false);
+        speedup.setEnabled(true);
+    }
+
+    private void setSpeed() {
+        if(dispatcher != null ) {
+            int speed = dispatcher.getProcessSpeed();
+            if (speed == 8) {
+                dispatcher.setProcessSpeed(1);
+                speedup.setText("加速 X1");
+            } else {
+                int f = speed * 2;
+                dispatcher.setProcessSpeed(f);
+                speedup.setText("加速 X" + f);
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -194,17 +209,19 @@ public class DispatcherView extends JFrame implements ActionListener {
                 break;
             case "pause":
                 if (isPaused) {
-                    dispatcher.notify();
                     pause.setText("暂停");
                 } else
                     pause.setText("继续");
                 isPaused = !isPaused;
                 break;
             case "stop":
-                isStopped = true;
+                setStopped();
                 model.setDataToDefault();
                 TIME = 0;
                 updateCurTime();
+                break;
+            case "speedup":
+                setSpeed();
                 break;
             default:
         }

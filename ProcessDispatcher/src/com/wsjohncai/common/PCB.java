@@ -1,6 +1,6 @@
 package com.wsjohncai.common;
 
-public class JCB {
+public class PCB {
 	
 	public static final int RUNNING = 1;
 	public static final int COMMITTED = 2;
@@ -9,41 +9,35 @@ public class JCB {
 	
 	private String name;
 	private int summit_time;
-	private int time_required;
+	private int time_req_left;
 	private int status;
+	private int priority;
 	private int start_time;
+	private int time_req;
 	private int stop_time;
-	private int turnaround_time;
-	private double weigh_turnaround_time;
-	
-	public JCB(String name, int summit_time,int time_required) {
+
+	public PCB(String name, int summit_time, int time_req_left, int priority) {
 		this.name = name;
 		this.summit_time = summit_time;
-		this.time_required = time_required;
+		this.time_req_left = time_req_left;
+		time_req = time_req_left;
+		this.priority = priority;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public int getSummit_time() {
 		return summit_time;
 	}
 
-	public void setSummit_time(int summit_time) {
-		this.summit_time = summit_time;
+	public int getTime_req_left() {
+		return time_req_left;
 	}
 
-	public int getTime_required() {
-		return time_required;
-	}
-
-	public void setTime_required(int time_required) {
-		this.time_required = time_required;
+	public void setTime_req_left(int time_req_left) {
+		this.time_req_left = time_req_left;
 	}
 
 	public int getStatus() {
@@ -70,21 +64,16 @@ public class JCB {
 		this.stop_time = total_run_time;
 	}
 
-	public int getTurnaround_time() {
-		return turnaround_time;
+
+	public int getPriority() {
+		return priority;
 	}
 
-	public void setTurnaround_time(int turnaround_time) {
-		this.turnaround_time = turnaround_time;
+	public void setPriority(int priority) {
+		this.priority = priority;
 	}
 
-	public double getWeigh_turnaround_time() {
-		return weigh_turnaround_time;
-	}
-
-	public void setWeigh_turnaround_time(double d) {
-		this.weigh_turnaround_time = d;
-	}
-	
-	
+    public int getTime_req() {
+        return time_req;
+    }
 }
