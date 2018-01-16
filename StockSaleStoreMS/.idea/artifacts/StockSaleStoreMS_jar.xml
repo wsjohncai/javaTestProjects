@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StockSaleStoreMS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/StockSaleStoreMS_jar</output-path>
+    <root id="archive" name="StockSaleStoreMS.jar">
+      <element id="module-output" name="StockSaleStoreMS" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/src.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/mysql-connector-java-5.1.44-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
