@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DispatcherSystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DispatcherSystem_jar</output-path>
+    <root id="archive" name="DispatcherSystem.jar">
+      <element id="module-output" name="DispatcherSystem" />
+    </root>
+  </artifact>
+</component>

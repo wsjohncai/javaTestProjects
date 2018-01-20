@@ -15,15 +15,13 @@ import com.ds.common.JCB;
 import com.ds.tools.TimeHelper;
 
 //填写作业信息对话窗口
-public class NewJobDialog extends JDialog {
+class NewJobDialog extends JDialog {
     private JPanel bg;
-    private JLabel name_lb, time_lb, ttime_lb, pri_lb;
     private JTextField name_tx, time_tx, ttime_tx, pri_tx;
-    private JButton summit, cancel;
     private JCB job;
     private MainFrame parent;
 
-    public NewJobDialog(MainFrame parent) {
+    NewJobDialog(MainFrame parent) {
         super(parent, "添加作业", true);
         this.parent = parent;
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -44,10 +42,10 @@ public class NewJobDialog extends JDialog {
         bg.setPreferredSize(new Dimension(200, 150));
         // bg.setMinimumSize(bg.getPreferredSize());
 
-        name_lb = new JLabel("作业名");
-        time_lb = new JLabel("提交时间");
-        ttime_lb = new JLabel("运行时间");
-        pri_lb = new JLabel("优先级");
+        JLabel name_lb = new JLabel("作业名");
+        JLabel time_lb = new JLabel("提交时间");
+        JLabel ttime_lb = new JLabel("运行时间");
+        JLabel pri_lb = new JLabel("优先级");
         name_tx = new JTextField(18);
         time_tx = new JTextField(18);
         ttime_tx = new JTextField(18);
@@ -64,8 +62,8 @@ public class NewJobDialog extends JDialog {
         bg.add(pri_lb);
         bg.add(pri_tx);
 
-        summit = new JButton("提交");
-        cancel = new JButton("取消");
+        JButton summit = new JButton("提交");
+        JButton cancel = new JButton("取消");
         bg.add(summit);
         bg.add(cancel);
         summit.addActionListener((e) -> {

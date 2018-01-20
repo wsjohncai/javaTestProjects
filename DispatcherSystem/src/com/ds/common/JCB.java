@@ -7,14 +7,14 @@ public class JCB {
     public static final int NOT_EXIST = -1;
     public static final int FINISHED = 2;
 
-    private String name;
-    private int svc_time;
-    private int left_svc_time;
-    private String summit_time;
-    private String start_time;
-    private String stop_time;
-    private int priority;
-    private int status = NOT_EXIST;
+    private String name; //名称
+    private int svc_time; //要求运行时间
+    private int left_svc_time; //剩余运行时间
+    private String summit_time; //提交时间
+    private String start_time; //开始时间
+    private String stop_time; //停止时间
+    private int priority; //优先级
+    private int status = NOT_EXIST; //状态变量
 
     public JCB(String name, int svc_time, String summit_time, int priority) {
         this.name = name;

@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private JLabel ta_lb, wta_lb;
     private JTextField time_tf;
     private JButton start, stop, pause, speedup, add, del, mod;
-    private String time = "08:00";
+    private String time = "10:00";
     public boolean isPaused = false;
     public boolean isStopped = true;
     private DispatcherThread thread;
@@ -82,7 +82,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
     private void initRightPane() {
         JScrollPane sc_commited, sc_run;
-        inModel = new DataModel(DataModel.TABLE_COMMITED);
+        inModel = new DataModel(DataModel.TABLE_COMMITTED);
         JTable inList = new JTable(inModel);
         sc_commited = new JScrollPane(inList);
         sc_commited.setPreferredSize(new Dimension(w / 2 - 20, h / 2 - 60));
@@ -199,7 +199,8 @@ public class MainFrame extends JFrame implements ActionListener {
                 time = time_tf.getText();
                 time_tf.setEditable(false);
                 mod.setText("修改");
-                start.setEnabled(true);
+                if (!stop.getText().equals("重置"))
+                    start.setEnabled(true);
                 this.requestFocus();
             } else {
                 JOptionPane.showMessageDialog(this, "时间格式有错");
@@ -213,6 +214,8 @@ public class MainFrame extends JFrame implements ActionListener {
      * 计算平均周转时间和平均带权周转时间
      */
     public void countAVG() {
+        if (finModel.getRowCount() == 0)
+            return;
         float totalf = 0f;
         int total = 0;
         int rows = finModel.getRowCount();
@@ -309,8 +312,16 @@ public class MainFrame extends JFrame implements ActionListener {
                 jobModel.fireTableDataChanged();
                 break;
             case "del":
-                jobModel.deleteJob(jobList.getSelectedRow());
+                int row = jobList.getSelectedRow();
+                JCB j = DataModel.getQueue(DataModel.TABLE_NOT_START).get(row);
+                if (!jobModel.deleteJob(row)) {
+                    JOptionPane.showMessageDialog(this, "不能删除就绪或者运行态的作业！");
+                    break;
+                }
+                finModel.deleteJob(DataModel.getQueue(DataModel.TABLE_FINISHED).indexOf(j));
                 jobModel.fireTableDataChanged();
+                finModel.fireTableDataChanged();
+                countAVG();
                 break;
             case "mod":
                 modifyTime();

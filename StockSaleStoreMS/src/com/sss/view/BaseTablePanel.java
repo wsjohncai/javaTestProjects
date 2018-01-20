@@ -3,30 +3,45 @@ package com.sss.view;
 import com.sss.datamodel.BaseTableModel;
 
 import javax.swing.*;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 
-public class BaseTable extends JPanel {
+public class BaseTablePanel extends JPanel {
 
     private JTable table;
     private BaseTableModel model;
+    private TableRowSorter<BaseTableModel> sorter;
     private int w, h;
 
-    protected void initTable() {
+    private void initTable() {
         table = new JTable(model);
         JScrollPane sc = new JScrollPane(table);
         table.setRowSelectionAllowed(true);
         table.setFillsViewportHeight(true);
+        table.setBorder(BorderFactory.createLineBorder(Color.black));
+        sorter = new TableRowSorter<>(model);
+        table.setRowSorter(sorter);
         sc.setPreferredSize(new Dimension(w, h));
+        sc.setBorder(BorderFactory.createTitledBorder("数据表"));
         this.add(sc);
     }
 
-    BaseTable(int w, int h, int tableType) {
+    BaseTablePanel(int w, int h, int tableType) {
         this.w = w;
         this.h = h;
-        model = new BaseTableModel();
+        model = new BaseTableModel(tableType);
+        initTable();
     }
 
-    public BaseTableModel getModel() {
+    BaseTableModel getModel() {
         return model;
+    }
+
+    JTable getTable() {
+        return table;
+    }
+
+    TableRowSorter<BaseTableModel> getSorter() {
+        return sorter;
     }
 }

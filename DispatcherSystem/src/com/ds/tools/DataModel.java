@@ -9,7 +9,7 @@ import java.util.Vector;
 public class DataModel extends AbstractTableModel {
 
     public static final int TABLE_NOT_START = 3;
-    public static final int TABLE_COMMITED = 0;
+    public static final int TABLE_COMMITTED = 0;
     public static final int TABLE_RUNNING = 1;
     public static final int TABLE_FINISHED = 2;
 
@@ -23,7 +23,7 @@ public class DataModel extends AbstractTableModel {
             case TABLE_NOT_START:
                 colNames = new String[]{"作业名", "提交时间", "运行时间", "优先级", "状态"};
                 break;
-            case TABLE_COMMITED:
+            case TABLE_COMMITTED:
                 colNames = new String[]{"作业名", "提交时间", "优先级", "服务需时"};
                 break;
             case TABLE_RUNNING:
@@ -69,7 +69,7 @@ public class DataModel extends AbstractTableModel {
                     j.setStop_time("");
                 }
                 break;
-            case TABLE_COMMITED:
+            case TABLE_COMMITTED:
                 queue[table_type].removeAllElements();
                 break;
             case TABLE_RUNNING:
@@ -89,8 +89,16 @@ public class DataModel extends AbstractTableModel {
         queue[table_type].add(job);
     }
 
-    public void deleteJob(int idx) {
-        queue[table_type].remove(idx);
+    public boolean deleteJob(int idx) {
+        if (idx != -1) {
+            int status = queue[table_type].get(idx).getStatus();
+            if(status == JCB.NOT_EXIST || status == JCB.FINISHED) {
+                queue[table_type].remove(idx);
+                return true;
+            } else
+                return false;
+        }
+        return false;
     }
 
     public static Vector<JCB> getQueue(int type) {
@@ -124,14 +132,14 @@ public class DataModel extends AbstractTableModel {
             case 0:
                 return job.getName();
             case 1:
-                if (table_type == TABLE_NOT_START || table_type == TABLE_COMMITED)
+                if (table_type == TABLE_NOT_START || table_type == TABLE_COMMITTED)
                     return job.getSummit_time();
                 else if (table_type == TABLE_RUNNING)
                     return job.getLeft_svc_time();
                 else
                     return job.getStart_time();
             case 2:
-                if (table_type == TABLE_RUNNING || table_type == TABLE_COMMITED)
+                if (table_type == TABLE_RUNNING || table_type == TABLE_COMMITTED)
                     return job.getPriority();
                 else if (table_type == TABLE_NOT_START)
                     return job.getSvc_time();
@@ -145,7 +153,7 @@ public class DataModel extends AbstractTableModel {
                     if (time == -1)
                         return "未运行";
                     else return time;
-                } else if (table_type == TABLE_COMMITED) {
+                } else if (table_type == TABLE_COMMITTED) {
                     return job.getLeft_svc_time();
                 }
             case 4:

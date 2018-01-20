@@ -1,41 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="JobDispatcher:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c97f066f-13e7-4231-b015-217d0d71b215" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/common/JCB.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/DataModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/DispatcherThread.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/TimeHelper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/view/MainFrame.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/common/MMRBlock.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/AllotAlgorithm.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/JobModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/MMRModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/AddJobDialog.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/AddMmrDialog.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/JobListPanel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/MMRListPanel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/MainFrame.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../ProcessDispatcher/.idea/artifacts/ProcessDispatcher_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../ProcessDispatcher/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/META-INF/MANIFEST.MF" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/view/NewProcDialog.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsjohncai/common/JCB.java" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/common/JCB.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsjohncai/logic/Algorithm.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsjohncai/tool/DispatcherThread.java" afterPath="$PROJECT_DIR$/src/com/wsjohncai/tool/DispatcherThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsjohncai/tool/MyTableModel.java" afterPath="$PROJECT_DIR$/src/com/wsjohncai/tool/MyTableModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsjohncai/view/DispatcherView.java" afterPath="$PROJECT_DIR$/src/com/wsjohncai/view/DispatcherView.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsjohncai/view/StartDialog.java" afterPath="$PROJECT_DIR$/src/com/wsjohncai/view/StartDialog.java" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ProcessDispatcher/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/common/JCB.java" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/common/PCB.java" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/logic/Algorithm.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/tool/DispatcherThread.java" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/tool/DispatcherThread.java" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/tool/MyTableModel.java" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/tool/MyTableModel.java" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/view/DispatcherView.java" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/view/DispatcherView.java" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/view/NewJobDialog.java" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/view/NewJobDialog.java" />
-      <change beforePath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/view/StartDialog.java" afterPath="$PROJECT_DIR$/../ProcessDispatcher/src/com/wsjohncai/view/StartDialog.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/view/DispatcherView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
-              <caret line="194" column="24" lean-forward="true" selection-start-line="194" selection-start-column="24" selection-end-line="194" selection-end-column="24" />
+              <caret line="194" column="24" lean-forward="false" selection-start-line="194" selection-start-column="24" selection-end-line="194" selection-end-column="24" />
               <folding>
                 <element signature="e#1357#1358#0" expanded="true" />
                 <element signature="e#1383#1384#0" expanded="true" />
@@ -63,8 +35,8 @@
       <file leaf-file-name="DispatcherThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/tool/DispatcherThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="163" column="5" lean-forward="true" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
+            <state relative-caret-position="240">
+              <caret line="156" column="36" lean-forward="true" selection-start-line="156" selection-start-column="36" selection-end-line="156" selection-end-column="36" />
               <folding>
                 <element signature="e#2743#2744#0" expanded="true" />
                 <element signature="e#2779#2780#0" expanded="true" />
@@ -79,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/common/JCB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-360">
-              <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+              <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding>
                 <element signature="e#1078#1079#0" expanded="true" />
                 <element signature="e#1128#1129#0" expanded="true" />
@@ -98,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/tool/MyTableModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+              <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
               <folding>
                 <element signature="e#472#480#0" expanded="true" />
               </folding>
@@ -168,7 +140,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -186,6 +158,28 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="JobDispatcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JobDispatcher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JobDispatcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JobDispatcher" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JobDispatcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JobDispatcher" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JobDispatcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JobDispatcher" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="JobDispatcher_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="JobDispatcher" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
@@ -235,7 +229,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -395,12 +389,12 @@
       <workItem from="1512831626144" duration="355000" />
       <workItem from="1513953876037" duration="1306000" />
       <workItem from="1514011763016" duration="6528000" />
-      <workItem from="1515482251288" duration="1419000" />
+      <workItem from="1515482251288" duration="2090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12018000" />
+    <option name="totallyTimeSpent" value="12689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="20" width="1346" height="728" extended-state="0" />
@@ -412,7 +406,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2347973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2347973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -552,7 +546,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/view/DispatcherView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
-          <caret line="194" column="24" lean-forward="true" selection-start-line="194" selection-start-column="24" selection-end-line="194" selection-end-column="24" />
+          <caret line="194" column="24" lean-forward="false" selection-start-line="194" selection-start-column="24" selection-end-line="194" selection-end-column="24" />
           <folding>
             <element signature="e#1357#1358#0" expanded="true" />
             <element signature="e#1383#1384#0" expanded="true" />
@@ -563,7 +557,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/tool/MyTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
           <folding>
             <element signature="e#472#480#0" expanded="true" />
           </folding>
@@ -573,7 +567,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/common/JCB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="e#1078#1079#0" expanded="true" />
             <element signature="e#1128#1129#0" expanded="true" />
@@ -589,8 +583,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wsjohncai/tool/DispatcherThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="163" column="5" lean-forward="true" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
+        <state relative-caret-position="240">
+          <caret line="156" column="36" lean-forward="true" selection-start-line="156" selection-start-column="36" selection-end-line="156" selection-end-column="36" />
           <folding>
             <element signature="e#2743#2744#0" expanded="true" />
             <element signature="e#2779#2780#0" expanded="true" />
@@ -606,10 +600,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>JobDispatcher:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -629,6 +625,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

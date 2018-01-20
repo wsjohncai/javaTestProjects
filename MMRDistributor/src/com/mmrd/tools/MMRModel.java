@@ -34,7 +34,11 @@ public class MMRModel extends AbstractTableModel {
         }
     }
 
+    /**
+     * 添加一个空闲块
+     */
     public static boolean addMMR(MMRBlock b) {
+        //先检查空闲块中是否有与插入的空闲块冲突
         for (MMRBlock bin : queue) {
             if (b.getStart_addr() > bin.getStart_addr()) {
                 if (b.getStart_addr() < bin.getStart_addr() + bin.getLength())
@@ -45,7 +49,10 @@ public class MMRModel extends AbstractTableModel {
             } else
                 return false;
         }
+        //再检查作业链表中已经分配的作业是否与插入地址有冲突
         for (JCB jin : JobModel.getQueue()) {
+            if(jin.getStore_start_addr() == JCB.NOT_STORE)
+                continue;
             if (b.getStart_addr() > jin.getStore_start_addr()) {
                 if (b.getStart_addr() < jin.getStore_start_addr() + jin.getSize())
                     return false;
@@ -70,9 +77,10 @@ public class MMRModel extends AbstractTableModel {
     }
 
     /**
-     * 将内存队列按初始地址大小排序
+     * 将内存队列按内存大小或者初始地址大小排序并且合并连续的内存块
      */
     public static void reorganize() {
+        //先按照地址大小排序
         queue.sort(MyComparator.getAddrOrderInstance());
         int i = 0;
         while (true) {
@@ -80,6 +88,7 @@ public class MMRModel extends AbstractTableModel {
                 break;
             MMRBlock b = queue.get(i);
             MMRBlock b1 = queue.get(i + 1);
+            //如果相邻两个空闲块是连续的，那么合并
             if ((b.getStart_addr() + b.getLength()) == b1.getStart_addr()) {
                 b.setLength(b.getLength() + b1.getLength());
                 queue.remove(i + 1);
@@ -87,6 +96,7 @@ public class MMRModel extends AbstractTableModel {
                 i++;
             }
         }
+        //完成合并后再按照指定方式排序
         if (MainFrame.getAl_Sel() == AllotAlgorithm.OPF
                 || MainFrame.getAl_Sel() == AllotAlgorithm.WF)
             queue.sort(MyComparator.getInstance());

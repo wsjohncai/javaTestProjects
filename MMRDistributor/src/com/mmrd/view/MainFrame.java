@@ -1,6 +1,7 @@
 package com.mmrd.view;
 
 import com.mmrd.common.JCB;
+import com.mmrd.tools.AllotAlgorithm;
 import com.mmrd.tools.JobModel;
 import com.mmrd.tools.MMRModel;
 
@@ -149,6 +150,7 @@ public class MainFrame extends JFrame implements ActionListener {
                 break;
             case "wf":
                 al_sel = WF;
+                AllotAlgorithm.setSeqToDefault();
                 jobModel.recycleAll();
                 break;
             case "rcy":

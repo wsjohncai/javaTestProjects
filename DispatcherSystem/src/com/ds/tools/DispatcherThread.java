@@ -15,7 +15,7 @@ public class DispatcherThread implements Runnable {
     public DispatcherThread(MainFrame view) {
         this.view = view;
         alList = DataModel.getQueue(DataModel.TABLE_NOT_START);
-        inList = DataModel.getQueue(DataModel.TABLE_COMMITED);
+        inList = DataModel.getQueue(DataModel.TABLE_COMMITTED);
         runList = DataModel.getQueue(DataModel.TABLE_RUNNING);
         finList = DataModel.getQueue(DataModel.TABLE_FINISHED);
     }
@@ -41,6 +41,7 @@ public class DispatcherThread implements Runnable {
                 }
             }
             if (first != null) {
+                first.setStatus(JCB.COMMITTED);
                 first.setStart_time(view.getTime());
                 inList.add(first);
             }
