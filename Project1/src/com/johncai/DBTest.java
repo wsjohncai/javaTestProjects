@@ -1,39 +1,35 @@
 package com.johncai;
 
-import java.sql.*;
+import com.mysql.cj.xdevapi.*;
 
 public class DBTest {
 
-	public static void main(String[] args) {
-		String user = "wsjohncai";
-		String passwd = "1092czg";
-		String url = "jdbc:mysql://localhost:3306/mysql";
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection(url, user, passwd);
-			if(con!=null) {
-				st = con.createStatement();
-				String sql = "show columns in sys_config;";
-				rs = st.executeQuery(sql);
-				while(rs.next())
-				System.out.println(rs.getString(1));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				rs.close();
-				st.close();
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+    public static void main(String[] args) {
+        String user = "wsjohncai";
+        String passwd = "1092647174";
+        String url = "mysqlx://localhost:33060/test";
 
-	}
+        Session session = new SessionFactory().getSession(url+"?user="+user+"&password="+passwd);
+        Schema myDb = session.getSchema("test");
+
+        //通过collection来记录数据
+//        Collection coll = myDb.createCollection("users", true);
+//        coll.add("{\"name\":\"admin\",\"password\":\"1092Czg\"}").execute();
+//        DocResult docs = coll.find("name like :n").bind("n","a%").execute();
+//        while (docs.hasNext()) {
+//            System.out.println(docs.fetchOne());
+//        }
+
+        //通过table记录数据
+        Table table = myDb.getTable("user");
+        RowResult rows = table.select("id,name,password")
+                .where("name like :n")
+                .bind("n","a%")
+                .execute();
+        while (rows.hasNext()) {
+            Row row = rows.fetchOne();
+            System.out.println(row.getString("name")+","+row.getString("password"));
+        }
+    }
 
 }

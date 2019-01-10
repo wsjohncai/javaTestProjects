@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="943c6f6c-c164-4b9a-b0c0-72cd0942e92b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/WP1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/commons-beanutils-1.8.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/commons-collections-3.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/commons-lang-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/commons-logging-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/ezmorph-1.0.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/json-lib-2.4-jdk15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysqlConnector/c3p0-0.9.1-pre6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysqlConnector/jboss-common-jdbc-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysqlConnector/mysql-connector-java-8.0.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysqlConnector/protobuf-java-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysqlConnector/slf4j-api-1.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DevApiSample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FileEncryption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Temp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WeatherHtmlAnalyse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/out/production/Spider/ConnectionHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/out/production/Spider/DownloadListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/out/production/Spider/Downloader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/out/production/Spider/Spider$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/out/production/Spider/Spider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/src/ConnectionHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/src/DownloadListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spider/src/Downloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mysqlConnector/mysql-connector-java-5.1.44-bin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BytetoInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BytetoInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataCatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataCatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HuffmanCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PingIP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PingIP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegexTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/johncai/DBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/johncai/DBTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/johncai/DeleteChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/johncai/DeleteChar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spider/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spider/src/Spider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spider/src/Spider.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Temp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Temp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/johncai/DBTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DevApiSample.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DevApiSample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&quot;county&quot;</find>
+      <find>\.equals(.+?)</find>
+      <find>matches</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>LVL_COUNTY</replace>
+      <replace>==</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/FileEncryption.java" />
+        <option value="$PROJECT_DIR$/src/RegexTest.java" />
+        <option value="$PROJECT_DIR$/src/WeatherHtmlAnalyse.java" />
+        <option value="$PROJECT_DIR$/src/PingIP.java" />
+        <option value="$PROJECT_DIR$/src/Temp.java" />
+        <option value="$PROJECT_DIR$/src/DevApiSample.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/41f21c5b-0516-44fc-a5e7-f54665927fa8/console.sql" />
+        <option value="$PROJECT_DIR$/src/com/johncai/DBTest.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="13" />
+    <option name="width" value="1346" />
+    <option name="height" value="775" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project1" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Project1" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Project1" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Project1" type="616d4139:PackageViewModuleNode" />
+              <item name="HuffmanCode.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="Project1" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Project1" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+            <path>
+              <item name="Project1" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Project1" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="java" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Project1" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Project1" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="java" type="1f31426a:PackageElementNode" />
+              <item name="io" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Project1" type="cbb8eebc:String" user="Project1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last.edited.regexp" value="&lt;a href=&quot;http://wz.zj.weather.com.cn/&quot;&gt;温州&lt;/a&gt;" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ImageArchiveHelper/.project" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Sources\java\WP1\Project1\src" />
+      <recent name="D:\Sources\java\WP1\Project1\lib\mysqlConnector" />
+      <recent name="D:\Sources\java\WP1\Project1\lib\jsonlib" />
+      <recent name="D:\Sources\java\WP1\Project1\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Sources\java\WP1\Project1\lib\json" />
+      <recent name="D:\Sources\java\WP1\Project1\lib\jre\lib\ext" />
+      <recent name="D:\Sources\java\WP1\Project1\lib\jsonlib" />
+      <recent name="D:\Sources\java\WP1\Project1\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.DBTest">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="DBTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.johncai.DBTest" />
+      <module name="Project1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.johncai.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="DevApiSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DevApiSample" />
+      <module name="Project1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="PingIP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PingIP" />
+      <module name="Project1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Temp" />
+      <module name="Project1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="WeatherHtmlAnalyse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WeatherHtmlAnalyse" />
+      <module name="Project1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="mysql-connector-java-8.0.11.jar" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/mysqlConnector/mysql-connector-java-8.0.11.jar" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list>
+      <item itemvalue="JAR Application.mysql-connector-java-8.0.11.jar" />
+      <item itemvalue="Application.PingIP" />
+      <item itemvalue="Application.WeatherHtmlAnalyse" />
+      <item itemvalue="Application.Temp" />
+      <item itemvalue="Application.DBTest" />
+      <item itemvalue="Application.DevApiSample" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DBTest" />
+        <item itemvalue="Application.DevApiSample" />
+        <item itemvalue="Application.Temp" />
+        <item itemvalue="Application.PingIP" />
+        <item itemvalue="Application.WeatherHtmlAnalyse" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="943c6f6c-c164-4b9a-b0c0-72cd0942e92b" name="Default" comment="" />
+      <created>1522242419488</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1522242419488</updated>
+      <workItem from="1522242428707" duration="513000" />
+      <workItem from="1522243268319" duration="7085000" />
+      <workItem from="1522926783352" duration="1384000" />
+      <workItem from="1522985937352" duration="9970000" />
+      <workItem from="1523007948441" duration="14085000" />
+      <workItem from="1523190551198" duration="2510000" />
+      <workItem from="1523198822920" duration="9248000" />
+      <workItem from="1523245806375" duration="29249000" />
+      <workItem from="1523339028593" duration="591000" />
+      <workItem from="1523465833284" duration="2500000" />
+      <workItem from="1524503948130" duration="990000" />
+      <workItem from="1524546094131" duration="2439000" />
+      <workItem from="1524548662687" duration="186000" />
+      <workItem from="1524592964583" duration="5948000" />
+      <workItem from="1524631154218" duration="13689000" />
+      <workItem from="1524841588057" duration="763000" />
+      <workItem from="1525868832046" duration="2620000" />
+      <workItem from="1526276972709" duration="25000" />
+      <workItem from="1527006495991" duration="2915000" />
+      <workItem from="1527052984230" duration="3544000" />
+      <workItem from="1528961061182" duration="120000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="110374000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="13" y="0" width="1346" height="775" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021962" side_tool="true" weight="0.32784432" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978038" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32861635" />
+      <window_info id="Designer" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49773756" visible="true" weight="0.17884915" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.509434" visible="true" weight="0.19051322" />
+      <window_info anchor="right" id="Structure" order="7" sideWeight="0.49056605" side_tool="true" visible="true" weight="0.19051322" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="9" weight="0.32934132" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" x="0" y="0" width="295" height="584" id="Documentation" order="8" side_tool="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="10" weight="0.32861635" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32934132" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49699247" weight="0.32861635" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/RegexTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="233" column="56" lean-forward="true" selection-start-line="233" selection-start-column="56" selection-end-line="233" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json/json-lib-2.4-jdk15.jar!/net/sf/json/processors/JsonValueProcessor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json/json-lib-2.4-jdk15.jar!/net/sf/json/JSONNull.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json/json-lib-2.4-jdk15.jar!/net/sf/json/JsonConfig.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="284" column="30" selection-start-line="284" selection-start-column="30" selection-end-line="284" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json/json-lib-2.4-jdk15.jar!/net/sf/json/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="1276" column="22" selection-start-line="1276" selection-start-column="22" selection-end-line="1276" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="563" column="6" selection-start-line="563" selection-start-column="6" selection-end-line="563" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json/json-lib-2.4-jdk15.jar!/net/sf/json/JSONArray.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="1747" column="19" selection-start-line="1747" selection-start-column="19" selection-end-line="1747" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetHost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WeatherHtmlAnalyse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/io/entity/EntityUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/cookie/BasicCookieStore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/org/omg/PortableServer/ServantLocatorPackage/CookieHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/cookie/CookieOrigin.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/impl/cookie/CookieSpecBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-990">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/protocol/HttpContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/classic/methods/HttpGet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/classic/methods/HttpUriRequestBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/message/BasicClassicHttpRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/message/BasicHttpRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="68" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/HttpRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/HttpMessage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/MessageHeaders.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/protocol/HttpClientContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="48" column="50" lean-forward="true" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/protocol/BasicHttpContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-334">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/protocol/HttpCoreContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="25" column="62" lean-forward="true" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/HttpResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/impl/classic/CloseableHttpResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/io/Closeable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/classic/HttpClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpcore5-5.0-beta2.jar!/org/apache/hc/core5/http/impl/io/DefaultHttpRequestParserFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/httpclient/httpclient5-5.0-beta1.jar!/org/apache/hc/client5/http/impl/classic/CloseableHttpClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/reflect/Array.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="479" column="37" lean-forward="true" selection-start-line="479" selection-start-column="37" selection-end-line="479" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="206" column="22" lean-forward="true" selection-start-line="206" selection-start-column="22" selection-end-line="206" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="3212" column="22" selection-start-line="3212" selection-start-column="22" selection-end-line="3212" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1531">
+          <caret line="492" column="30" selection-start-line="492" selection-start-column="30" selection-end-line="492" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6222">
+          <caret line="604" column="5" lean-forward="true" selection-start-line="604" selection-start-column="5" selection-end-line="604" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-292">
+          <caret line="544" column="19" lean-forward="true" selection-start-line="544" selection-start-column="19" selection-end-line="544" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PingIP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="129" column="39" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BytetoInt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HuffmanCode.java" />
+    <entry file="file://$PROJECT_DIR$/src/InnerClassTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Temp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataCatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysqlConnector/mysql-connector-java-8.0.11.jar!/com/mysql/cj/MysqlxSession.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DevApiSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysqlConnector/mysql-connector-java-8.0.11.jar!/com/mysql/cj/xdevapi/Schema.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/41f21c5b-0516-44fc-a5e7-f54665927fa8/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/johncai/DBTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Project1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

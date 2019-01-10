@@ -44,7 +44,7 @@ public class FileHandler implements Runnable {
 		}
 	}
 
-	// ¶ÁÈ¡ºöÂÔÎÄµµ
+	// è¯»å–å¿½ç•¥æ–‡æ¡£
 	private void readDir() {
 		dirList = new ArrayList<String>();
 		ignTXT = new File(workPath.getAbsolutePath() + "\\ignore.txt");
@@ -64,7 +64,7 @@ public class FileHandler implements Runnable {
 		}
 	}
 
-	// ·µ»ØÖ¸¶¨µÄÎÄ¼ş
+	// è¿”å›æŒ‡å®šçš„æ–‡ä»¶
 	public File getFile(int id) {
 		File result = null;
 		String name = fileList.get(id);
@@ -75,12 +75,12 @@ public class FileHandler implements Runnable {
 		return result;
 	}
 
-	// »ñÈ¡¹¤×÷ÎÄ¼şµÄÊıÁ¿
+	// è·å–å·¥ä½œæ–‡ä»¶çš„æ•°é‡
 	public int getWorkLoad() {
 		return fileList.size();
 	}
 
-	// µİ¹é»ñµÃËùÓĞÎÄ¼ş
+	// é€’å½’è·å¾—æ‰€æœ‰æ–‡ä»¶
 	private void readAllFile(File path) {
 		File[] files = path.listFiles();
 		for (File file : files) {
@@ -98,7 +98,7 @@ public class FileHandler implements Runnable {
 		}
 	}
 
-	// ¶ÁÈ¡µ±Ç°¹¤×÷Ä¿Â¼ÏÂµÄÆäËû×ÓÄ¿Â¼ÏÂµÄÎÄ¼ş
+	// è¯»å–å½“å‰å·¥ä½œç›®å½•ä¸‹çš„å…¶ä»–å­ç›®å½•ä¸‹çš„æ–‡ä»¶
 	private void readTempFile(File path) {
 		File[] files = path.listFiles();
 		for (File file : files) {
@@ -114,7 +114,7 @@ public class FileHandler implements Runnable {
 		}
 	}
 
-	// ´ÓfileListÎÄ¼şÖĞ½«Î´·ÖÀàµÄÍ¼Æ¬¶ÁÈ¡µ½ÄÚ´æ
+	// ä»fileListæ–‡ä»¶ä¸­å°†æœªåˆ†ç±»çš„å›¾ç‰‡è¯»å–åˆ°å†…å­˜
 	private void readInMem() {
 		BufferedReader bf;
 		String path1 = null, path2;
@@ -124,12 +124,12 @@ public class FileHandler implements Runnable {
 				String text;
 				while ((text = bf.readLine()) != null) {
 					String[] temp = text.split(";;;");
-					if (temp.length == 2) { // Èç¹ûÎÄ¼şÎ´·ÖÀà£¬½«Ä¿Â¼¼Ó½øÎ»ÖÃÁĞ±í£¬½«ÎÄ¼şÌí¼Óµ½´ı·ÖÀàÁĞ±í
+					if (temp.length == 2) { // å¦‚æœæ–‡ä»¶æœªåˆ†ç±»ï¼Œå°†ç›®å½•åŠ è¿›ä½ç½®åˆ—è¡¨ï¼Œå°†æ–‡ä»¶æ·»åŠ åˆ°å¾…åˆ†ç±»åˆ—è¡¨
 						String name = temp[1];
 						if (!new File(name).exists())
 							continue;
 						path2 = name.substring(0, name.lastIndexOf("\\"));
-						if (path1 == null || !path1.equals(path2)) { // Ìí¼ÓĞÂµÄÄ¿Â¼ËùÔÚÎ»ÖÃ
+						if (path1 == null || !path1.equals(path2)) { // æ·»åŠ æ–°çš„ç›®å½•æ‰€åœ¨ä½ç½®
 							poiRcd.put(lID, path2);
 							path1 = path2;
 						}
@@ -143,7 +143,7 @@ public class FileHandler implements Runnable {
 			}
 	}
 
-	// Ìí¼ÓÓ¦¸ÃºöÂÔµÄÎÄ¼ş¼Ğ
+	// æ·»åŠ åº”è¯¥å¿½ç•¥çš„æ–‡ä»¶å¤¹
 	public void addDir(String name) {
 		if (!dirList.contains(name)) {
 			dirList.add(name);
@@ -160,7 +160,7 @@ public class FileHandler implements Runnable {
 		return dirList;
 	}
 
-	// Ğ´Èëignore.txt
+	// å†™å…¥ignore.txt
 	private void writeIgn() {
 		FileWriter fw;
 		if (ignTXT != null && ignTXT.exists()) {
@@ -176,7 +176,7 @@ public class FileHandler implements Runnable {
 		}
 	}
 
-	// Ğ´ÈëfileList.txtÎÄ¼ş
+	// å†™å…¥fileList.txtæ–‡ä»¶
 	private void writeFileTxt() {
 		FileWriter fw;
 		if (fileTXT != null && fileTXT.exists()) {
@@ -195,19 +195,19 @@ public class FileHandler implements Runnable {
 		}
 	}
 
-	// ´´½¨Ä¿Â¼
+	// åˆ›å»ºç›®å½•
 	public boolean createDir(File path) {
 		return path.mkdir();
 	}
 
-	// ±ê¼ÇÒÑ·ÖÀà
+	// æ ‡è®°å·²åˆ†ç±»
 	public void markSorted(int id, String newPath) {
 		newPath += ";;;sorted";
 		// print("markedSorted: " + id + ":" + newPath);
 		fileList.put(id, newPath);
 	}
 
-	// È¡Ïû±ê¼Ç
+	// å–æ¶ˆæ ‡è®°
 	public void removeMark(int id, String name) {
 		// String name = fileList.get(id);
 		// String nameNew = name.substring(0, name.indexOf(";;;sorted"));
@@ -215,12 +215,12 @@ public class FileHandler implements Runnable {
 		fileList.put(id, name);
 	}
 
-	// ·µ»Ø¸ÃÍ¼Æ¬ÊÇ·ñÒÑ¾­·ÖÀà
+	// è¿”å›è¯¥å›¾ç‰‡æ˜¯å¦å·²ç»åˆ†ç±»
 	public boolean isSorted(int id) {
 		return fileList.get(id).contains(";;;sorted");
 	}
 
-	// ÒÆ¶¯ÎÄ¼ş·½·¨
+	// ç§»åŠ¨æ–‡ä»¶æ–¹æ³•
 	public File moveFile(File srcFile, File dstFile) {
 		FileInputStream fis;
 		FileOutputStream fos;
@@ -247,7 +247,7 @@ public class FileHandler implements Runnable {
 		return null;
 	}
 
-	// ´¦ÀíÍ¬ÃûÎÄ¼ş
+	// å¤„ç†åŒåæ–‡ä»¶
 	private File dealDup(File file) {
 		int i = 1;
 		File temp;
@@ -259,7 +259,7 @@ public class FileHandler implements Runnable {
 		return temp;
 	}
 
-	// ¸ü¸Ä¹¤×÷Çø
+	// æ›´æ”¹å·¥ä½œåŒº
 	public int changeWork(String newPath) {
 		if (newPath.contains(workPath.getAbsolutePath())) {
 			// print("changeWork: " + newPath + ":" +
@@ -286,7 +286,7 @@ public class FileHandler implements Runnable {
 
 	}
 
-	// ÊÕÎ²¹¤×÷
+	// æ”¶å°¾å·¥ä½œ
 	public void endWork() {
 		writeFileTxt();
 		writeIgn();
@@ -296,7 +296,7 @@ public class FileHandler implements Runnable {
 		System.out.println(x);
 	}
 
-	// ²âÊÔ
+	// æµ‹è¯•
 	// public static void main(String[] args) {
 	// String t = "E:\\Temp\\file.txt.jpg";
 	// new FileHandler(null, null).dealDup(new File(t));

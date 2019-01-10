@@ -2,35 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4b2dd5a-7179-4fb0-8c76-4bac5957ad43" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Spider.java" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../DispatcherSystem/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/tools/DataModel.class" afterPath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/tools/DataModel.class" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/tools/DispatcherThread.class" afterPath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/tools/DispatcherThread.class" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/view/MainFrame.class" afterPath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/view/MainFrame.class" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/view/NewJobDialog.class" afterPath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/com/ds/view/NewJobDialog.class" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/out/production/DispatcherSystem/layout.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/common/JCB.java" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/common/JCB.java" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/DataModel.java" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/DataModel.java" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/DispatcherThread.java" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/tools/DispatcherThread.java" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/view/MainFrame.java" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/view/MainFrame.java" />
-      <change beforePath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/view/NewJobDialog.java" afterPath="$PROJECT_DIR$/../DispatcherSystem/src/com/ds/view/NewJobDialog.java" />
-      <change beforePath="$PROJECT_DIR$/../JobDispatcher/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../JobDispatcher/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MMRDistributor/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/tools/AllotAlgorithm.class" afterPath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/tools/AllotAlgorithm.class" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/tools/MMRModel.class" afterPath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/tools/MMRModel.class" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/tools/MyComparator.class" afterPath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/tools/MyComparator.class" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/view/MainFrame.class" afterPath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/com/mmrd/view/MainFrame.class" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/out/production/MMRDistributor/frame.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/AllotAlgorithm.java" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/AllotAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/MMRModel.java" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/tools/MMRModel.java" />
-      <change beforePath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/MainFrame.java" afterPath="$PROJECT_DIR$/../MMRDistributor/src/com/mmrd/view/MainFrame.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/datamodel/BaseTableModel.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/datamodel/BaseTableModel.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/datamodel/DataBaseTool.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/datamodel/DataBaseTool.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/AddorAlterDialog.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/AddorAlterDialog.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/BaseFrame.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/BaseFrame.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/BaseTablePanel.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/BaseTablePanel.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/InfoPanel.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/InfoPanel.java" />
-      <change beforePath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/LoginUI.java" afterPath="$PROJECT_DIR$/../StockSaleStoreMS/src/com/sss/view/LoginUI.java" />
+      <change afterPath="$PROJECT_DIR$/../.idea/WP1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ImageArchiveHelper/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ImageArchiveHelper/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/Project1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/json/commons-beanutils-1.8.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/json/commons-collections-3.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/json/commons-lang-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/json/commons-logging-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/json/ezmorph-1.0.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/json/json-lib-2.4-jdk15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/mysqlConnector/c3p0-0.9.1-pre6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/mysqlConnector/jboss-common-jdbc-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/mysqlConnector/mysql-connector-java-8.0.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/mysqlConnector/protobuf-java-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/lib/mysqlConnector/slf4j-api-1.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/src/DevApiSample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/src/FileEncryption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/src/Temp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/src/WeatherHtmlAnalyse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Spider/ConnectionHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Spider/DownloadListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Spider/Downloader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Spider/Spider$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Spider/Spider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ConnectionHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DownloadListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Downloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/appContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/proxy/AspectA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/com/test/servlet/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/src/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/aspectjrt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/aspectjtools.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/aspectjweaver.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/commons-dbcp2-2.4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/commons-pool2-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/mybatis-3.4.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/mysql-connector-java-8.0.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebDemo/web/WEB-INF/lib/org.aspectj.matcher.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ImageArchiveHelper/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageArchiveHelper/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ImageArchiveHelper/HelperUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageArchiveHelper/HelperUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/lib/mysqlConnector/mysql-connector-java-5.1.44-bin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/BytetoInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/BytetoInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/DataCatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/DataCatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/HuffmanCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/PingIP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/PingIP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/RegexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/RegexTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/com/johncai/DBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/com/johncai/DBTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project1/src/com/johncai/DeleteChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/com/johncai/DeleteChar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spider.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,13 +87,69 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Spider.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Spider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="-634">
+              <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConnectionHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-419">
+              <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#766#767#0" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#1059#1060#0" expanded="true" />
+                <element signature="e#845#846#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
+                <element signature="e#2744#2745#0" expanded="true" />
+                <element signature="e#2795#2796#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" column="98" lean-forward="true" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="98" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Downloader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Downloader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1737">
+              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+                <element signature="e#776#777#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DownloadListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -61,12 +163,27 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>200</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>MAXURL</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/ConnecionHelper.java" />
+        <option value="$PROJECT_DIR$/src/DownloadListener.java" />
+        <option value="$PROJECT_DIR$/src/Downloader.java" />
+        <option value="$PROJECT_DIR$/src/Test.java" />
+        <option value="$PROJECT_DIR$/src/ConnectionHelper.java" />
+        <option value="$PROJECT_DIR$/src/Spider.java" />
+      </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -74,6 +191,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="13" />
@@ -84,20 +204,12 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,20 +217,27 @@
               <item name="Spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="Spider" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Spider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last.edited.regexp" value="www.aidu.com/jo.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.postfix.templates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -132,31 +251,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Spider">
     <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
+    </configuration>
+    <configuration name="Downloader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Downloader" />
+      <module name="Spider" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Spider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Spider" />
+      <module name="Spider" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="Spider" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" />
@@ -166,24 +283,13 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
@@ -196,27 +302,30 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
+    <list>
+      <item itemvalue="Application.Spider" />
+      <item itemvalue="Application.Downloader" />
+      <item itemvalue="Application.Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Spider" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Downloader" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -225,39 +334,46 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516460189701</updated>
-      <workItem from="1516460194201" duration="129000" />
+      <workItem from="1516460194201" duration="3272000" />
+      <workItem from="1516510471796" duration="43216000" />
+      <workItem from="1516611868519" duration="18476000" />
+      <workItem from="1520501730515" duration="1304000" />
+      <workItem from="1523199316793" duration="241000" />
+      <workItem from="1540972680075" duration="7136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129000" />
+    <option name="totallyTimeSpent" value="73645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="0" width="1346" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16485226" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17884915" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3286385" />
+      <window_info anchor="right" id="Palette&#9;" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="2" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32704404" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286385" />
+      <window_info id="Designer" order="0" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.17418352" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Structure" order="7" side_tool="true" visible="true" weight="0.18273717" />
+      <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
+      <window_info id="UI Designer" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Commander" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,25 +382,348 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Spider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="2610">
+          <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Downloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="144" column="63" selection-start-line="144" selection-start-column="63" selection-end-line="144" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConnectionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#2744#2745#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2565">
+          <caret line="174" column="26" lean-forward="true" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConnectionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#2744#2745#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Downloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="144" column="63" selection-start-line="144" selection-start-column="63" selection-end-line="144" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Downloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="144" column="63" lean-forward="true" selection-start-line="144" selection-start-column="63" selection-end-line="144" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConnectionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#2744#2745#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConnectionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#2744#2745#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Downloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" column="27" lean-forward="true" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/net/URL.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/io/RandomAccessFile.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/nio/channels/FileChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="1051" column="26" selection-start-line="1051" selection-start-column="26" selection-end-line="1051" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/net/SocketInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="209" selection-start-line="209" selection-end-line="209" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="98" lean-forward="true" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Downloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1737">
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConnectionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-419">
+          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#2744#2745#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-634">
+          <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jquery-1.12.4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8.172</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spider</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -5,577 +5,563 @@ import java.io.*;
 import java.util.*;
 
 public class HelperUI implements ActionListener {
-	private static final int SCR_WID = Toolkit.getDefaultToolkit().getScreenSize().width;
-	private static final int SCR_HGT = Toolkit.getDefaultToolkit().getScreenSize().height;
+    private static final int SCR_WID = Toolkit.getDefaultToolkit().getScreenSize().width;
+    private static final int SCR_HGT = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-	{
-		try {
-			javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    {
+        try {
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	private Long startTime, endTime;
-	private JFrame frame;
-	private JPanel pl_title, pl_image, pl_sort, pl_btn, pl_bottom;
-	private JLabel lb_image, lb_comfirm, lb_path;
-	private JTextField lb_count;
-	private JButton btn_add, btn_sel, btn_pre, btn_next, btn_undo, btn_skip;
-	private JTextField in_folder;
-	private File workSpace, curImgFile;
-	private FileHandler fileHandler;
-	private HashMap<Integer, JButton> buttons;
-	private int totalImg = 0; // ĞèÒª´¦ÀíµÄÎÄ¼ş×ÜÊıÁ¿
-	private int curImg = 1; // µ±Ç°Ò³ÃæÍ¼Æ¬µÄ±àºÅ
-	private HashMap<Integer, String> undoStack;
-	private HashMap<JButton, Integer> clickedCount;
-	private int stack = 0;
-	private int sortedImg = 0;
+    private Long startTime, endTime;
+    private JFrame frame;
+    private JPanel pl_title, pl_image, pl_sort, pl_btn, pl_bottom;
+    private JLabel lb_image, lb_comfirm, lb_path;
+    private JTextField lb_count;
+    private JButton btn_add, btn_sel, btn_pre, btn_next, btn_undo, btn_skip;
+    private JTextField in_folder;
+    private File workSpace, curImgFile;
+    private FileHandler fileHandler;
+    private HashMap<Integer, JButton> buttons;
+    private int totalImg = 0; // éœ€è¦å¤„ç†çš„æ–‡ä»¶æ€»æ•°é‡
+    private int curImg = 1; // å½“å‰é¡µé¢å›¾ç‰‡çš„ç¼–å·
+    private HashMap<Integer, String> undoStack;
+    private HashMap<JButton, Integer> clickedCount;
+    private int stack = 0;
+    private int sortedImg = 0;
 
-	private void createUI() {
-		// ÉèÖÃÖ÷´°Ìå
-		frame = new JFrame("Í¼Æ¬·ÖÀàÖúÊÖ");
-		frame.setSize(SCR_WID / 2, SCR_HGT);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		myMouseAdapter mML = new myMouseAdapter();
-		frame.addWindowListener(new WindowAdapter() {
+    private void createUI() {
+        // è®¾ç½®ä¸»çª—ä½“
+        int uiW = SCR_WID / 2, uiH = SCR_HGT;
+        frame = new JFrame("å›¾ç‰‡åˆ†ç±»åŠ©æ‰‹");
+        frame.setSize(uiW, SCR_HGT);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        myMouseAdapter mML = new myMouseAdapter();
+        frame.addWindowListener(new WindowAdapter() {
 
-			@Override
-			public void windowClosing(WindowEvent e) {
-				if (fileHandler != null) {
-					fileHandler.endWork();
-					String sorted = "";
-					for (JButton b : clickedCount.keySet()) {
-						String f = b.getText();
-						int i = clickedCount.get(b);
-						if (!f.equals("Ìø¹ı") && i > 0) {
-							sorted += f + ": " + i + " ÕÅ\n";
-						}
-					}
-					endTime = java.util.Calendar.getInstance().getTimeInMillis();
-					long time = endTime - startTime;
-					String msg = "±¾´Î¶Ô" + sortedImg + "ÕÅÍ¼Æ¬½øĞĞÁË·ÖÀà\n" + "×ÜÓÃÊ±" + time / 1000 / 60 + "·ÖÖÓ\n"
-							+ "ÆäÖĞ¸÷ÎÄ¼ş¼ĞµÄ·ÖÀàÏêÇéÈçÏÂ£º\n" + sorted;
-					int r = JOptionPane.showConfirmDialog(frame, msg, "¹Ø±Õ³ÌĞò", JOptionPane.OK_CANCEL_OPTION);
-					if (r == JOptionPane.OK_OPTION)
-						System.exit(0);
-					else
-						return;
-				}
-				System.exit(0);
-			}
-		});
-		frame.addKeyListener(new KeyAdapter() {
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-					btn_pre.doClick();
-				}
-				if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					btn_next.doClick();
-				}
-			}
-		});
-		frame.addMouseListener(mML);
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (fileHandler != null) {
+                    fileHandler.endWork();
+                    String sorted = "";
+                    for (JButton b : clickedCount.keySet()) {
+                        String f = b.getText();
+                        int i = clickedCount.get(b);
+                        if (!f.equals("è·³è¿‡") && i > 0) {
+                            sorted += f + ": " + i + " å¼ \n";
+                        }
+                    }
+                    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+                    long time = endTime - startTime;
+                    String msg = "æœ¬æ¬¡å¯¹" + sortedImg + "å¼ å›¾ç‰‡è¿›è¡Œäº†åˆ†ç±»\n" + "æ€»ç”¨æ—¶" + time / 1000 / 60 + "åˆ†é’Ÿ\n"
+                            + "å…¶ä¸­å„æ–‡ä»¶å¤¹çš„åˆ†ç±»è¯¦æƒ…å¦‚ä¸‹ï¼š\n" + sorted;
+                    int r = JOptionPane.showConfirmDialog(frame, msg, "å…³é—­ç¨‹åº", JOptionPane.OK_CANCEL_OPTION);
+                    if (r == JOptionPane.OK_OPTION)
+                        System.exit(0);
+                    else
+                        return;
+                }
+                System.exit(0);
+            }
+        });
+        frame.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    btn_pre.doClick();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    btn_next.doClick();
+                }
+            }
+        });
+        frame.addMouseListener(mML);
 
-		// ÓÃÓÚÏÔÊ¾Í¼Æ¬µÄÃæ°å
-		pl_image = new JPanel(null);
-		pl_title = new JPanel(null);
-		lb_path = new JLabel("ÉĞÎ´ÉèÖÃ¹¤×÷Ä¿Â¼(¶¥²ãÄ¿Â¼)");
-		btn_sel = new JButton("Ñ¡ÔñÄ¿Â¼");
-		lb_count = new JTextField();
-		btn_undo = new JButton("³·Ïú");
-		btn_skip = new JButton("Ìø¹ı");
-		lb_image = new JLabel();
-		lb_count.setFont(new Font("Consolas", Font.PLAIN, 16));
-		lb_path.setFont(new Font("ËÎÌå", Font.BOLD, 16));
-		btn_sel.addActionListener(this);
-		btn_undo.addActionListener(this);
-		btn_undo.setEnabled(false);
-		btn_skip.addActionListener(this);
-		btn_skip.setFont(new Font("Î¢ÈíÑÅºÚ", Font.BOLD, 20));
-		btn_skip.setEnabled(false);
-		lb_image.addMouseListener(mML);
-		lb_image.addMouseMotionListener(mML);
-		pl_image.addMouseWheelListener(mML);
-		lb_count.addMouseListener(mML);
-		lb_count.addKeyListener(new KeyAdapter() {
+        // ç”¨äºæ˜¾ç¤ºå›¾ç‰‡çš„é¢æ¿
+        pl_image = new JPanel(null);
+        pl_title = new JPanel(null);
+        lb_path = new JLabel("å°šæœªè®¾ç½®å·¥ä½œç›®å½•(é¡¶å±‚ç›®å½•)");
+        btn_sel = new JButton("é€‰æ‹©ç›®å½•");
+        lb_count = new JTextField();
+        btn_undo = new JButton("æ’¤é”€");
+        btn_skip = new JButton("è·³è¿‡");
+        lb_image = new JLabel();
+        lb_count.setFont(new Font("Consolas", Font.PLAIN, 16));
+        lb_path.setFont(new Font("å®‹ä½“", Font.BOLD, 16));
+        btn_sel.addActionListener(this);
+        btn_undo.addActionListener(this);
+        btn_undo.setEnabled(false);
+        btn_skip.addActionListener(this);
+        btn_skip.setFont(new Font("å¾®è½¯é›…é»‘", Font.BOLD, 20));
+        btn_skip.setEnabled(false);
+        lb_image.addMouseListener(mML);
+        lb_image.addMouseMotionListener(mML);
+        pl_image.addMouseWheelListener(mML);
+        lb_count.addMouseListener(mML);
+        lb_count.addKeyListener(new KeyAdapter() {
 
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				String p = lb_count.getText();
-				int page = Integer.parseInt(p);
-				lb_count.setEditable(false);
-				if (page > 0 && page <= totalImg) {
-					curImg = page;
-					setImage(page);
-				}
-				frame.requestFocus();
-			}
+            @Override
+            public void keyPressed(KeyEvent arg0) {
+                String p = lb_count.getText();
+                int page = Integer.parseInt(p);
+                lb_count.setEditable(false);
+                if (page > 0 && page <= totalImg) {
+                    curImg = page;
+                    setImage(page);
+                }
+                frame.requestFocus();
+            }
 
-		});
+        });
 
-		pl_title.setBackground(Color.YELLOW);
-		pl_image.setBackground(Color.BLACK);
-		pl_title.setPreferredSize(new Dimension(SCR_WID / 2, 30));
-		pl_image.setPreferredSize(new Dimension(SCR_WID / 2, SCR_HGT / 4 * 3 - 5));
+        pl_title.setBackground(Color.YELLOW);
+        pl_image.setBackground(Color.BLACK);
+        pl_title.setPreferredSize(new Dimension(uiW, 30));
+        pl_image.setPreferredSize(new Dimension(uiW, SCR_HGT / 4 * 3 - 5));
 
-		pl_title.add(lb_path);
-		lb_path.setBounds(10, 2, SCR_WID / 4, 25);
-		pl_title.add(btn_sel);
-		btn_sel.setBounds(SCR_WID / 4 + 20, 4, 100, 25);
-		pl_title.add(lb_count);
-		lb_count.setBounds(SCR_WID / 4 + 130, 4, 200, 25);
-		pl_title.add(btn_undo);
-		btn_undo.setBounds(SCR_WID / 4 + 340, 4, 65, 25);
+        pl_title.add(lb_path);
+        int uihW = uiW / 2;  //ç•Œé¢ä¸€åŠå®½åº¦
+        lb_path.setBounds(5, 2, uihW, 25);
+        pl_title.add(btn_sel);
+        btn_sel.setBounds(uihW + 5, 4, uihW / 4, 25);
+        pl_title.add(lb_count);
+        lb_count.setBounds(uihW / 4 * 5, 4, uihW / 2, 25);
+        pl_title.add(btn_undo);
+        btn_undo.setBounds(uihW / 4 * 7, 4, uihW / 4, 25);
 
-		initBtnMap();
-		// pl_title.add(btn_skip);
-		// btn_skip.setBounds(SCR_WID / 4 + 410, 4, 65, 25);
-		pl_image.add(lb_image);
-		frame.add(pl_title, BorderLayout.NORTH);
-		frame.add(pl_image, BorderLayout.CENTER);
+        initBtnMap();
+        // pl_title.add(btn_skip);
+        // btn_skip.setBounds(uihW + 410, 4, 65, 25);
+        pl_image.add(lb_image);
+        frame.add(pl_title, BorderLayout.NORTH);
+        frame.add(pl_image, BorderLayout.CENTER);
 
-		/*
-		 * ÓÃÓÚÏÔÊ¾·ÖÀàÏà¹Ø°´Å¥½çÃæ¡£³õÊ¼»¯Îª°´Å¥¿Õ°×£¬ ÔÚÓÃ»§ÊäÈëÎÄ¼ş¼ĞĞÅÏ¢²¢È·ÈÏºóÌí¼Ó°´Å¥¡£ ÔÚÎÄ¼ş¹éµµºó£¬ÔÚlb_comfirmÏÔÊ¾Ïà¹ØĞÅÏ¢
-		 */
-		pl_sort = new JPanel(new BorderLayout());
-		pl_btn = new JPanel();
-		pl_bottom = new JPanel(null);
-		lb_comfirm = new JLabel();
-		in_folder = new JTextField(10);
-		btn_add = new JButton("Ìí¼Ó");
-		btn_pre = new JButton("Pre");
-		btn_next = new JButton("Next");
+        /*
+         * ç”¨äºæ˜¾ç¤ºåˆ†ç±»ç›¸å…³æŒ‰é’®ç•Œé¢ã€‚åˆå§‹åŒ–ä¸ºæŒ‰é’®ç©ºç™½ï¼Œ åœ¨ç”¨æˆ·è¾“å…¥æ–‡ä»¶å¤¹ä¿¡æ¯å¹¶ç¡®è®¤åæ·»åŠ æŒ‰é’®ã€‚ åœ¨æ–‡ä»¶å½’æ¡£åï¼Œåœ¨lb_comfirmæ˜¾ç¤ºç›¸å…³ä¿¡æ¯
+         */
+        pl_sort = new JPanel(new BorderLayout());
+        pl_btn = new JPanel();
+        pl_bottom = new JPanel();
+        lb_comfirm = new JLabel();
+        in_folder = new JTextField(10);
+        btn_add = new JButton("æ·»åŠ ");
+        btn_pre = new JButton("Pre");
+        btn_next = new JButton("Next");
 
-		pl_sort.setPreferredSize(new Dimension(SCR_WID / 2, SCR_HGT / 4 - 100));
-		pl_btn.setBackground(Color.WHITE);
-		pl_btn.setPreferredSize(new Dimension(SCR_WID / 4, SCR_HGT / 4 - 180));
-		pl_bottom.setBackground(Color.YELLOW);
-		pl_bottom.setPreferredSize(new Dimension(SCR_WID / 2, 40));
-		lb_comfirm.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 16));
-		in_folder.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 16));
-		in_folder.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					addBtn();
-				}
-			}
+        pl_sort.setPreferredSize(new Dimension(uiW, SCR_HGT / 4 - 100));
+        pl_btn.setBackground(Color.WHITE);
+        pl_btn.setPreferredSize(new Dimension(uihW, SCR_HGT / 4 - 180));
+        pl_bottom.setBackground(Color.YELLOW);
+        pl_bottom.setPreferredSize(new Dimension(uiW, 40));
+        lb_comfirm.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 16));
+        lb_comfirm.setHorizontalTextPosition(SwingConstants.LEFT);
+        in_folder.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 16));
+        in_folder.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    addBtn();
+                }
+            }
 
-		});
-		pl_bottom.add(lb_comfirm);
-		lb_comfirm.setBounds(0, 3, SCR_WID / 4, 30);
-		pl_bottom.add(in_folder);
-		in_folder.setBounds(SCR_WID / 4 + 10, 4, 200, 30);
-		// Îª°´Å¥Ìí¼Ó¼àÌı£¬µã»÷ºó´´½¨Ïà¹Ø°´Å¥
-		btn_add.addActionListener(this);
-		pl_bottom.add(btn_add);
-		btn_add.setBounds(SCR_WID / 4 + 220, 4, 80, 30);
-		btn_pre.addActionListener(this);
-		btn_pre.setEnabled(false);
-		pl_bottom.add(btn_pre);
-		btn_pre.setBounds(SCR_WID / 4 + 320, 4, 60, 30);
-		btn_next.addActionListener(this);
-		btn_next.setEnabled(false);
-		pl_bottom.add(btn_next);
-		btn_next.setBounds(SCR_WID / 4 + 385, 4, 70, 30);
-		pl_sort.add(pl_btn, BorderLayout.CENTER);
-		pl_sort.add(pl_bottom, BorderLayout.SOUTH);
-		frame.add(pl_sort, BorderLayout.SOUTH);
+        });
+        pl_bottom.add(lb_comfirm);
+        lb_comfirm.setPreferredSize(new Dimension(200, 30));
+        lb_comfirm.setMaximumSize(new Dimension(250, 30));
+        pl_bottom.add(in_folder);
+        // ä¸ºæŒ‰é’®æ·»åŠ ç›‘å¬ï¼Œç‚¹å‡»ååˆ›å»ºç›¸å…³æŒ‰é’®
+        btn_add.addActionListener(this);
+        pl_bottom.add(btn_add);
+        btn_pre.addActionListener(this);
+        btn_pre.setEnabled(false);
+        pl_bottom.add(btn_pre);
+        btn_next.addActionListener(this);
+        btn_next.setEnabled(false);
+        pl_bottom.add(btn_next);
+        pl_sort.add(pl_btn, BorderLayout.CENTER);
+        pl_sort.add(pl_bottom, BorderLayout.SOUTH);
+        frame.add(pl_sort, BorderLayout.SOUTH);
 
-		updateBtn(null);
-		frame.setVisible(true);
-		frame.pack();
-	}
+        updateBtn(null);
+        frame.setVisible(true);
+        frame.pack();
+    }
 
-	// ÓÃÓÚÈÃÆäËûÀàµ÷ÓÃÒÔÉèÖÃÍ¼Æ¬
-	private void setImage(int id) {
-		curImgFile = fileHandler.getFile(id);
-		if (curImgFile != null) {
-			ImageTool imgTool = new ImageTool(curImgFile.getAbsolutePath(), pl_image.getWidth(), pl_image.getHeight());
-			lb_image.setIcon(imgTool.getImageIcon());
+    // ç”¨äºè®©å…¶ä»–ç±»è°ƒç”¨ä»¥è®¾ç½®å›¾ç‰‡
+    private void setImage(int id) {
+        curImgFile = fileHandler.getFile(id);
+        if (curImgFile != null) {
+            ImageTool imgTool = new ImageTool(curImgFile.getAbsolutePath(), pl_image.getWidth(), pl_image.getHeight());
+            lb_image.setIcon(imgTool.getImageIcon());
 
-			// ÉèÖÃÍ¼Æ¬µÄÎ»ÖÃ¾ÓÖĞ
-			int width = lb_image.getIcon().getIconWidth();
-			int height = lb_image.getIcon().getIconHeight();
-			int poiX = (pl_image.getWidth() - width) / 2;
-			int poiY = (pl_image.getHeight() - height) / 2;
-			lb_image.setBounds(poiX, poiY, width, height);
-			pl_image.repaint();
-			pl_image.revalidate();
+            // è®¾ç½®å›¾ç‰‡çš„ä½ç½®å±…ä¸­
+            int width = lb_image.getIcon().getIconWidth();
+            int height = lb_image.getIcon().getIconHeight();
+            int poiX = (pl_image.getWidth() - width) / 2;
+            int poiY = (pl_image.getHeight() - height) / 2;
+            lb_image.setBounds(poiX, poiY, width, height);
+            pl_image.repaint();
+            pl_image.revalidate();
 
-			lb_count.setText("Progress: " + curImg + "/" + totalImg);
-			lb_path.setText((fileHandler.isSorted(curImg) ? "(ÒÑ·ÖÀà)" : "(Î´·ÖÀà)") + curImgFile.getAbsolutePath());
-			lb_path.setToolTipText(lb_path.getText());
-			lb_comfirm.setToolTipText(lb_comfirm.getText());
-			if (totalImg > 1) {
-				if (curImg < totalImg) {
-					btn_next.setEnabled(true);
-					btn_skip.setEnabled(true);
-				} else {
-					btn_next.setEnabled(false);
-					btn_skip.setEnabled(false);
-				}
-				if (curImg > 1)
-					btn_pre.setEnabled(true);
-				else
-					btn_pre.setEnabled(false);
-			}
-		}
-	}
+            lb_count.setText("Progress: " + curImg + "/" + totalImg);
+            lb_path.setText((fileHandler.isSorted(curImg) ? "(å·²åˆ†ç±»)" : "(æœªåˆ†ç±»)") + curImgFile.getAbsolutePath());
+            lb_path.setToolTipText(lb_path.getText());
+            lb_comfirm.setToolTipText(lb_comfirm.getText());
+            if (totalImg > 1) {
+                if (curImg < totalImg) {
+                    btn_next.setEnabled(true);
+                    btn_skip.setEnabled(true);
+                } else {
+                    btn_next.setEnabled(false);
+                    btn_skip.setEnabled(false);
+                }
+                if (curImg > 1)
+                    btn_pre.setEnabled(true);
+                else
+                    btn_pre.setEnabled(false);
+            }
+        }
+    }
 
-	private File selectPath() {
-		JFileChooser choose = new JFileChooser();
-		choose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		choose.setDialogTitle("Ñ¡Ôñ¹¤×÷Ä¿Â¼");
-		if (workSpace != null)
-			choose.setCurrentDirectory(workSpace);
-		int result = choose.showOpenDialog(frame);
-		if (result == JFileChooser.APPROVE_OPTION) {
-			return choose.getSelectedFile();
-		}
-		return null;
-	}
+    private File selectPath() {
+        JFileChooser choose = new JFileChooser();
+        choose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        choose.setDialogTitle("é€‰æ‹©å·¥ä½œç›®å½•");
+        if (workSpace != null)
+            choose.setCurrentDirectory(workSpace);
+        int result = choose.showOpenDialog(frame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            return choose.getSelectedFile();
+        }
+        return null;
+    }
 
-	// ³õÊ¼»¯Óë°´Å¥Ïà¹ØµÄ±í
-	private void initBtnMap() {
-		buttons = new HashMap<Integer, JButton>();
-		clickedCount = new HashMap<JButton, Integer>();
-		buttons.put(buttons.size() + 1, btn_skip);
-		clickedCount.put(btn_skip, 0);
-	}
+    // åˆå§‹åŒ–ä¸æŒ‰é’®ç›¸å…³çš„è¡¨
+    private void initBtnMap() {
+        buttons = new HashMap<Integer, JButton>();
+        clickedCount = new HashMap<JButton, Integer>();
+        buttons.put(buttons.size() + 1, btn_skip);
+        clickedCount.put(btn_skip, 0);
+    }
 
-	// ¶Ô°´Å¥½øĞĞµã»÷Í³¼ÆºÍÅÅĞò
-	private void sortButton() {
-		ArrayList<Integer> list = new ArrayList<Integer>(); // ÁÙÊ±±í£¬ÓÃÓÚ´æ·Åµã»÷´ÎÊı²¢ÅÅĞò
-		ArrayList<JButton> btntmp = new ArrayList<JButton>(); // ÁÙÊ±±í£¬ÓÃÓÚ´æ´¢ÒÑ¾­Ìí¼Óµ½buttonsµÄ°´Å¥£¬¼ì²âÖØ¸´
-		list.addAll(clickedCount.values());
-		Collections.sort(list, Collections.reverseOrder());
-		int i = 1;
-		for (int c : list) {
-			for (JButton button : clickedCount.keySet()) {
-				if (clickedCount.get(button) == c) {
-					if (btntmp.contains(button))
-						continue;
-					// print(button.getText());
-					btntmp.add(button);
-					buttons.put(i++, button);
-					break;
-				}
-			}
-		}
-	}
+    // å¯¹æŒ‰é’®è¿›è¡Œç‚¹å‡»ç»Ÿè®¡å’Œæ’åº
+    private void sortButton() {
+        ArrayList<Integer> list = new ArrayList<Integer>(); // ä¸´æ—¶è¡¨ï¼Œç”¨äºå­˜æ”¾ç‚¹å‡»æ¬¡æ•°å¹¶æ’åº
+        ArrayList<JButton> btntmp = new ArrayList<JButton>(); // ä¸´æ—¶è¡¨ï¼Œç”¨äºå­˜å‚¨å·²ç»æ·»åŠ åˆ°buttonsçš„æŒ‰é’®ï¼Œæ£€æµ‹é‡å¤
+        list.addAll(clickedCount.values());
+        Collections.sort(list, Collections.reverseOrder());
+        int i = 1;
+        for (int c : list) {
+            for (JButton button : clickedCount.keySet()) {
+                if (clickedCount.get(button) == c) {
+                    if (btntmp.contains(button))
+                        continue;
+                    // print(button.getText());
+                    btntmp.add(button);
+                    buttons.put(i++, button);
+                    break;
+                }
+            }
+        }
+    }
 
-	private JButton getBtn(String btn) {
-		for (int i = 1; i <= buttons.size(); i++) {
-			if (buttons.get(i).getText().equals(btn))
-				return buttons.get(i);
-		}
-		return null;
-	}
+    private JButton getBtn(String btn) {
+        for (int i = 1; i <= buttons.size(); i++) {
+            if (buttons.get(i).getText().equals(btn))
+                return buttons.get(i);
+        }
+        return null;
+    }
 
-	private void removeBtn(JButton btn) {
-		int size = buttons.size();
-		for (int i = 1; i <= size; i++) {
-			buttons.remove(i);
-		}
-		clickedCount.remove(btn);
-		sortButton();
-	}
+    private void removeBtn(JButton btn) {
+        int size = buttons.size();
+        for (int i = 1; i <= size; i++) {
+            buttons.remove(i);
+        }
+        clickedCount.remove(btn);
+        sortButton();
+    }
 
-	// ÓÃÓÚË¢ĞÂÎÄ¼ş¼ĞµÄ°´Å¥¡£Èç¹ûÊäÈëµÄÎÄ¼ş¼ĞÃû²»Îª¿Õ£¬ÔòÌí¼Ó°´Å¥£¬·ñÔòË¢ĞÂÃæ°å
-	private void updateBtn(JButton button) {
-		if (button != null) { // ÊäÈë²»Îªnull£¬ÔòÌí¼Ó°´Å¥
-			// ÉèÖÃ°´Å¥¼°ÆäÏàÓ¦ÊÂ¼ş
-			button.setFont(new Font("Î¢ÈíÑÅºÚ", Font.BOLD, 20));
-			button.addActionListener(this);
-			button.addMouseListener(new MouseAdapter() {
+    // ç”¨äºåˆ·æ–°æ–‡ä»¶å¤¹çš„æŒ‰é’®ã€‚å¦‚æœè¾“å…¥çš„æ–‡ä»¶å¤¹åä¸ä¸ºç©ºï¼Œåˆ™æ·»åŠ æŒ‰é’®ï¼Œå¦åˆ™åˆ·æ–°é¢æ¿
+    private void updateBtn(JButton button) {
+        if (button != null) { // è¾“å…¥ä¸ä¸ºnullï¼Œåˆ™æ·»åŠ æŒ‰é’®
+            // è®¾ç½®æŒ‰é’®åŠå…¶ç›¸åº”äº‹ä»¶
+            button.setFont(new Font("å¾®è½¯é›…é»‘", Font.BOLD, 20));
+            button.addActionListener(this);
+            button.addMouseListener(new MouseAdapter() {
 
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					if (e.getButton() == MouseEvent.BUTTON3) {
-						String path = workSpace + "\\" + button.getText();
-						int r = JOptionPane.showConfirmDialog(pl_btn, "Í¬Ê±É¾³ıÎÄ¼ş¼Ğ£¿", "¾¯¸æ", JOptionPane.YES_NO_OPTION);
-						if (r == JOptionPane.YES_OPTION) { // ³¢ÊÔÉ¾³ıÎÄ¼ş¼Ğ
-							File pathF = new File(path);
-							if (pathF.exists() && !pathF.delete())
-								JOptionPane.showMessageDialog(pl_btn, "ÎÄ¼ş¼Ğ²»Îª¿Õ£¬ÎŞ·¨É¾³ı£¡");
-							else {
-								button.removeMouseListener(this);
-								removeBtn(button);
-								updateBtn(null);
-							}
-							fileHandler.removeDir(path);
-						} else { // Ö±½ÓÉ¾³ı°´Å¥£¬²»¶ÔÎÄ¼ş¼Ğ´¦Àí
-							button.removeMouseListener(this);
-							removeBtn(button);
-							updateBtn(null);
-							fileHandler.removeDir(path);
-						}
-					}
-				}
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (e.getButton() == MouseEvent.BUTTON3) {
+                        String path = workSpace + "\\" + button.getText();
+                        int r = JOptionPane.showConfirmDialog(pl_btn, "åŒæ—¶åˆ é™¤æ–‡ä»¶å¤¹ï¼Ÿ", "è­¦å‘Š", JOptionPane.YES_NO_OPTION);
+                        if (r == JOptionPane.YES_OPTION) { // å°è¯•åˆ é™¤æ–‡ä»¶å¤¹
+                            File pathF = new File(path);
+                            if (pathF.exists() && !pathF.delete())
+                                JOptionPane.showMessageDialog(pl_btn, "æ–‡ä»¶å¤¹ä¸ä¸ºç©ºï¼Œæ— æ³•åˆ é™¤ï¼");
+                            else {
+                                button.removeMouseListener(this);
+                                removeBtn(button);
+                                updateBtn(null);
+                            }
+                            fileHandler.removeDir(path);
+                        } else { // ç›´æ¥åˆ é™¤æŒ‰é’®ï¼Œä¸å¯¹æ–‡ä»¶å¤¹å¤„ç†
+                            button.removeMouseListener(this);
+                            removeBtn(button);
+                            updateBtn(null);
+                            fileHandler.removeDir(path);
+                        }
+                    }
+                }
 
-			});
-			buttons.put(buttons.size() + 1, button);
-			clickedCount.put(button, 0);
-		}
-		sortButton();
-		pl_btn.removeAll();
-		for (int i = 1; i <= buttons.size(); i++) {
-			pl_btn.add(buttons.get(i));
-		}
-		pl_btn.repaint();
-		pl_btn.revalidate();
-	}
+            });
+            buttons.put(buttons.size() + 1, button);
+            clickedCount.put(button, 0);
+        }
+        sortButton();
+        pl_btn.removeAll();
+        for (int i = 1; i <= buttons.size(); i++) {
+            pl_btn.add(buttons.get(i));
+        }
+        pl_btn.repaint();
+        pl_btn.revalidate();
+    }
 
-	private boolean containsBtn(String name) {
-		for (JButton btn : clickedCount.keySet()) {
-			if (name.equals(btn.getText()))
-				return true;
-		}
-		return false;
-	}
+    private boolean containsBtn(String name) {
+        for (JButton btn : clickedCount.keySet()) {
+            if (name.equals(btn.getText()))
+                return true;
+        }
+        return false;
+    }
 
-	// Ìí¼Ó°´Å¥µÄ¹¦ÄÜÊµÏÖ
-	private void addBtn() {
-		String folder = in_folder.getText();
-		// Èç¹ûÊäÈëµÄÎÄ¼ş¼ĞÃûÎª¿Õ£¬ÔòÌáÊ¾
-		if (folder.matches("\\s+.*") || folder.equals("")) {
-			JOptionPane.showMessageDialog(pl_btn, "ÎÄ¼şÃû²»ÕıÈ·", "Warning", JOptionPane.ERROR_MESSAGE);
-			in_folder.setText("");
-		} else if (!containsBtn(folder)) { // Èç¹û°´Å¥²»´æÔÚ£¬Ôò½øĞĞÌí¼Ó,²¢´´½¨Ò»¸öÎÄ¼ş¼Ğ
+    // æ·»åŠ æŒ‰é’®çš„åŠŸèƒ½å®ç°
+    private void addBtn() {
+        String folder = in_folder.getText();
+        // å¦‚æœè¾“å…¥çš„æ–‡ä»¶å¤¹åä¸ºç©ºï¼Œåˆ™æç¤º
+        if (folder.matches("\\s+.*") || folder.equals("")) {
+            JOptionPane.showMessageDialog(pl_btn, "æ–‡ä»¶åä¸æ­£ç¡®", "Warning", JOptionPane.ERROR_MESSAGE);
+            in_folder.setText("");
+        } else if (!containsBtn(folder)) { // å¦‚æœæŒ‰é’®ä¸å­˜åœ¨ï¼Œåˆ™è¿›è¡Œæ·»åŠ ,å¹¶åˆ›å»ºä¸€ä¸ªæ–‡ä»¶å¤¹
 
-			String name = workSpace + "\\" + folder;
-			JButton btn = new JButton(folder);
-			File temp = new File(name);
-			boolean r = false;
-			if (!temp.exists()) {
-				r = fileHandler.createDir(new File(name));
-				if (r) {
-					updateBtn(btn);
-					fileHandler.addDir(name);
-					in_folder.setText("");
-				} else
-					lb_comfirm.setText("´´½¨Ä¿Â¼Ê§°Ü£¬³¢ÊÔÖØĞÂ´´½¨»òÕßÊÖ¶¯´´½¨£¡");
-			} else {
-				updateBtn(btn);
-				fileHandler.addDir(name);
-				in_folder.setText("");
-			}
-			in_folder.requestFocus();
-		} else
-			in_folder.setText("");
-	}
+            String name = workSpace + "\\" + folder;
+            JButton btn = new JButton(folder);
+            File temp = new File(name);
+            boolean r = false;
+            if (!temp.exists()) {
+                r = fileHandler.createDir(new File(name));
+                if (r) {
+                    updateBtn(btn);
+                    fileHandler.addDir(name);
+                    in_folder.setText("");
+                } else
+                    lb_comfirm.setText("åˆ›å»ºç›®å½•å¤±è´¥ï¼Œå°è¯•é‡æ–°åˆ›å»ºæˆ–è€…æ‰‹åŠ¨åˆ›å»ºï¼");
+            } else {
+                updateBtn(btn);
+                fileHandler.addDir(name);
+                in_folder.setText("");
+            }
+            in_folder.requestFocus();
+        } else
+            in_folder.setText("");
+    }
 
-	// ¶Ô°´Å¥½øĞĞÅÅĞò
+    // å¯¹æŒ‰é’®è¿›è¡Œæ’åº
 
-	// ³·Ïú²Ù×÷
-	private void undo() {
-		String[] text = undoStack.get(stack).split(";;;");
-		String curPath = workSpace.getAbsolutePath() + "\\";
-		// print("stack Lefted: "+stack);
-		// print("this undo text: "+text[0]+": "+text[1]+": "+text[2]);
-		if (text[2].equals("skipped")) {
-			lb_comfirm.setText("³·Ïú£º" + text[1]);
-			undoStack.remove(stack--);
-			if (stack == 0)
-				btn_undo.setEnabled(false);
-			curImg = Integer.parseInt(text[0]);
-			fileHandler.removeMark(curImg, text[1]);
-			sortedImg--;
-			setImage(curImg);
-			JButton b = getBtn(text[1].substring(curPath.length(), text[1].lastIndexOf("\\")));
-			// print(text[1].substring(curPath.length(),
-			// text[1].lastIndexOf("\\")));
-			if (b != null)
-				clickedCount.put(b, clickedCount.get(b) - 1);
-			return;
-		}
-		String src = text[2];
-		String dst = text[1];
-		File r = fileHandler.moveFile(new File(src), new File(dst));
-		if (r != null) {
-			lb_comfirm.setText("³·Ïú£º" + src + "¡ú" + dst);
-			undoStack.remove(stack--);
-			if (stack == 0)
-				btn_undo.setEnabled(false);
-			curImg = Integer.parseInt(text[0]);
-			fileHandler.removeMark(curImg, dst);
-			sortedImg--;
-			setImage(curImg);
-			JButton b = getBtn(dst.substring(curPath.length(), dst.lastIndexOf("\\")));
-			// print(dst.substring(curPath.length(), dst.lastIndexOf("\\")));
-			if (b != null)
-				clickedCount.put(b, clickedCount.get(b) - 1);
-		}
-	}
+    // æ’¤é”€æ“ä½œ
+    private void undo() {
+        String[] text = undoStack.get(stack).split(";;;");
+        String curPath = workSpace.getAbsolutePath() + "\\";
+        // print("stack Lefted: "+stack);
+        // print("this undo text: "+text[0]+": "+text[1]+": "+text[2]);
+        String src = text[2];
+        String dst = text[1];
+        File r = null;
+        if (!src.equals("skipped")) {
+            r = fileHandler.moveFile(new File(src), new File(dst));
+        }
+        if (src.equals("skipped") || r != null) {
+            lb_comfirm.setText("æ’¤é”€ï¼š" + src + "â†’" + dst);
+            undoStack.remove(stack--);
+            if (stack == 0)
+                btn_undo.setEnabled(false);
+            curImg = Integer.parseInt(text[0]);
+            fileHandler.removeMark(curImg, dst);
+            sortedImg--;
+            setImage(curImg);
+            JButton b = getBtn(src.substring(curPath.length(), src.lastIndexOf("\\")));
+            if (b != null)
+                clickedCount.put(b, clickedCount.get(b) - 1);
+        }
+    }
 
-	// ¼ÓÔØÄÚÈİ£¬³õÊ¼»¯
-	public void loadWork(int cur, int workLoad) {
-		totalImg = workLoad;
-		curImg = cur;
-		setImage(curImg);
-		lb_count.setText("Progress: " + curImg + "/" + totalImg);
-		lb_path.setText(fileHandler.isSorted(curImg) ? "(ÒÑ·ÖÀà)" : "(Î´·ÖÀà)" + curImgFile.getAbsolutePath());
-		lb_path.setToolTipText(lb_path.getText());
-		lb_comfirm.setText("ÏµÍ³¾ÍĞ÷");
-		initBtnMap();
-		ArrayList<String> list = fileHandler.getDir();
-		if (list != null && list.size() > 0)
-			for (String name : list) {
-				String n = name.substring(name.lastIndexOf("\\") + 1, name.length());
-				JButton btn = new JButton(n);
-				updateBtn(btn);
-			}
-	}
+    // åŠ è½½å†…å®¹ï¼Œåˆå§‹åŒ–
+    public void loadWork(int cur, int workLoad) {
+        totalImg = workLoad;
+        curImg = cur;
+        setImage(curImg);
+        lb_count.setText("Progress: " + curImg + "/" + totalImg);
+        lb_path.setText(fileHandler.isSorted(curImg) ? "(å·²åˆ†ç±»)" : "(æœªåˆ†ç±»)" + curImgFile.getAbsolutePath());
+        lb_path.setToolTipText(lb_path.getText());
+        lb_comfirm.setText("ç³»ç»Ÿå°±ç»ª");
+        initBtnMap();
+        ArrayList<String> list = fileHandler.getDir();
+        if (list != null && list.size() > 0)
+            for (String name : list) {
+                String n = name.substring(name.lastIndexOf("\\") + 1, name.length());
+                JButton btn = new JButton(n);
+                updateBtn(btn);
+            }
+    }
 
-	// ÉèÖÃ¹¤×÷Ä¿Â¼·½·¨
-	private void setWorkSpace() {
-		int cur = -1;
-		File workPath;
-		workPath = selectPath();
-		/*
-		 * Èç¹ûµ±Ç°ÒÑ¾­´ò¿ªÁËÒ»¸öÎÄ¼ş¼Ğ£¬ÅĞ¶ÏÊÇ·ñÎªµ±Ç°¹¤×÷Ä¿Â¼µÄ×ÓÄ¿Â¼£¬ Èç¹ûÊÇ£¬ÄÇÃ´Ìø×ªµ½ÏàÓ¦µÄĞòºÅ£¬ ·ñÔò´´½¨ĞÂµÄÊµÀı
-		 */
-		if (fileHandler != null) {
-			cur = fileHandler.changeWork(workPath.getAbsolutePath());
-			// print("setWorkSpace: return cur = "+cur);
-			if (cur > 0) {
-				curImg = cur;
-				setImage(curImg);
-			} else if (cur == -1)
-				fileHandler.endWork();
-			else if (cur == -2)
-				JOptionPane.showMessageDialog(frame, "¸ÃÎÄ¼ş¼ĞÏÂ²»´æÔÚÍ¼Æ¬ÎÄ¼ş£¬ÇëÖØĞÂÑ¡Ôñ");
-		}
-		if (workPath != null && cur == -1) {
-			// print("setWorkSpace: "+workPath.getAbsolutePath());
-			workSpace = workPath;
-			fileHandler = new FileHandler(this, workSpace);
-			Thread t = new Thread(fileHandler);
-			t.start();
-			lb_path.setText(workSpace.getAbsolutePath());
-			undoStack = new HashMap<Integer, String>();
-			initBtnMap();
-		}
-	}
+    // è®¾ç½®å·¥ä½œç›®å½•æ–¹æ³•
+    private void setWorkSpace() {
+        int cur = -1;
+        File workPath;
+        workPath = selectPath();
+        /*
+         * å¦‚æœå½“å‰å·²ç»æ‰“å¼€äº†ä¸€ä¸ªæ–‡ä»¶å¤¹ï¼Œåˆ¤æ–­æ˜¯å¦ä¸ºå½“å‰å·¥ä½œç›®å½•çš„å­ç›®å½•ï¼Œ å¦‚æœæ˜¯ï¼Œé‚£ä¹ˆè·³è½¬åˆ°ç›¸åº”çš„åºå·ï¼Œ å¦åˆ™åˆ›å»ºæ–°çš„å®ä¾‹
+         */
+        if (fileHandler != null) {
+            cur = fileHandler.changeWork(workPath.getAbsolutePath());
+            // print("setWorkSpace: return cur = "+cur);
+            if (cur > 0) {
+                curImg = cur;
+                setImage(curImg);
+            } else if (cur == -1)
+                fileHandler.endWork();
+            else if (cur == -2)
+                JOptionPane.showMessageDialog(frame, "è¯¥æ–‡ä»¶å¤¹ä¸‹ä¸å­˜åœ¨å›¾ç‰‡æ–‡ä»¶ï¼Œè¯·é‡æ–°é€‰æ‹©");
+        }
+        if (workPath != null && cur == -1) {
+            // print("setWorkSpace: "+workPath.getAbsolutePath());
+            workSpace = workPath;
+            fileHandler = new FileHandler(this, workSpace);
+            Thread t = new Thread(fileHandler);
+            t.start();
+            lb_path.setText(workSpace.getAbsolutePath());
+            undoStack = new HashMap<Integer, String>();
+            initBtnMap();
+        }
+    }
 
-	// ´òÓ¡
-	void print(String x) {
-		System.out.println(x);
-	}
+    // æ‰“å°
+    void print(String x) {
+        System.out.println(x);
+    }
 
-	// ÔËĞĞ
-	public static void main(String[] args) {
-		HelperUI ui = new HelperUI();
-		ui.createUI();
-		ui.startTime = java.util.Calendar.getInstance().getTimeInMillis();
-	}
+    // è¿è¡Œ
+    public static void main(String[] args) {
+        HelperUI ui = new HelperUI();
+        ui.createUI();
+        ui.startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn_add) {
-			addBtn();
-		} else if (e.getSource() == btn_skip) {
-			if (!fileHandler.isSorted(curImg)) {
-				String curPath = workSpace.getAbsolutePath() + "\\";
-				fileHandler.markSorted(curImg, curImgFile.getAbsolutePath());
-				undoStack.put(++stack, curImg + ";;;" + curImgFile.getAbsolutePath() + ";;;" + "skipped");
-				lb_comfirm.setText("Ìø¹ı: " + curImgFile.getAbsolutePath());
-				btn_undo.setEnabled(true);
-				sortedImg++;
-				String name = curImgFile.getAbsolutePath();
-				JButton b = getBtn(name.substring(curPath.length(), name.lastIndexOf("\\")));
-				// print("act: "+name.substring(curPath.length(),
-				// name.lastIndexOf("\\")));
-				if (b != null)
-					clickedCount.put(b, clickedCount.get(b) + 1);
-			}
-			setImage(++curImg);
-		} else if (e.getSource() == btn_sel) {
-			setWorkSpace();
-		} else if (e.getSource() == btn_pre) {
-			if (curImg > 1) {
-				setImage(--curImg);
-			}
-		} else if (e.getSource() == btn_next) {
-			if (curImg < totalImg) {
-				setImage(++curImg);
-			}
-		} else if (e.getSource() == btn_undo) {
-			undo();
-		} else if (buttons != null) {
-			for (int i = 1; i <= buttons.size(); i++) {
-				JButton btn = buttons.get(i);
-				if (e.getSource() == btn) {
-					String dstName = workSpace.getAbsolutePath() + "\\" + btn.getText() + "\\" + curImgFile.getName();
-					if (!dstName.equals(curImgFile.getAbsolutePath())) {
-						File result = fileHandler.moveFile(curImgFile, new File(dstName));
-						if (result != null) {
-							undoStack.put(++stack,
-									curImg + ";;;" + curImgFile.getAbsolutePath() + ";;;" + result.getAbsolutePath());
-							btn_undo.setEnabled(true);
-							fileHandler.markSorted(curImg, dstName);
-							sortedImg++;
-							lb_comfirm.setText("move to: " + result.getAbsolutePath());
-							if (curImg < totalImg)
-								setImage(++curImg);
-							clickedCount.put(btn, clickedCount.get(btn) + 1);
-						} else
-							lb_comfirm.setText("System ERROR!");
-						updateBtn(null);
-						break;
-					} else {
-						btn_skip.doClick();
-					}
-				}
-			}
-		}
-		frame.requestFocus();
-	}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btn_add) {
+            addBtn();
+        } else if (e.getSource() == btn_skip) {
+            if (!fileHandler.isSorted(curImg)) {
+                String curPath = workSpace.getAbsolutePath() + "\\";
+                fileHandler.markSorted(curImg, curImgFile.getAbsolutePath());
+                undoStack.put(++stack, curImg + ";;;" + curImgFile.getAbsolutePath() + ";;;" + "skipped");
+                lb_comfirm.setText("è·³è¿‡: " + curImgFile.getAbsolutePath());
+                btn_undo.setEnabled(true);
+                sortedImg++;
+                String name = curImgFile.getAbsolutePath();
+                JButton b = getBtn(name.substring(curPath.length(), name.lastIndexOf("\\")));
+                // print("act: "+name.substring(curPath.length(),
+                // name.lastIndexOf("\\")));
+                if (b != null)
+                    clickedCount.put(b, clickedCount.get(b) + 1);
+            }
+            setImage(++curImg);
+        } else if (e.getSource() == btn_sel) {
+            setWorkSpace();
+        } else if (e.getSource() == btn_pre) {
+            if (curImg > 1) {
+                setImage(--curImg);
+            }
+        } else if (e.getSource() == btn_next) {
+            if (curImg < totalImg) {
+                setImage(++curImg);
+            }
+        } else if (e.getSource() == btn_undo) {
+            undo();
+        } else if (buttons != null) {
+            for (int i = 1; i <= buttons.size(); i++) {
+                JButton btn = buttons.get(i);
+                if (e.getSource() == btn) {
+                    String dstName = workSpace.getAbsolutePath() + "\\" + btn.getText() + "\\" + curImgFile.getName();
+                    if (!dstName.equals(curImgFile.getAbsolutePath())) {
+                        File result = fileHandler.moveFile(curImgFile, new File(dstName));
+                        if (result != null) {
+                            undoStack.put(++stack,
+                                    curImg + ";;;" + curImgFile.getAbsolutePath() + ";;;" + result.getAbsolutePath());
+                            btn_undo.setEnabled(true);
+                            fileHandler.markSorted(curImg, dstName);
+                            sortedImg++;
+                            lb_comfirm.setText("move to: " + result.getAbsolutePath());
+                            if (curImg < totalImg)
+                                setImage(++curImg);
+                            clickedCount.put(btn, clickedCount.get(btn) + 1);
+                        } else
+                            lb_comfirm.setText("System ERROR!");
+                        updateBtn(null);
+                        break;
+                    } else {
+                        btn_skip.doClick();
+                    }
+                }
+            }
+        }
+        frame.requestFocus();
+    }
 
-	class myMouseAdapter extends MouseAdapter {
+    class myMouseAdapter extends MouseAdapter {
 
-		@Override
-		public void mouseWheelMoved(MouseWheelEvent e) {
-			int width = lb_image.getIcon().getIconWidth() - 100 * e.getWheelRotation();
-			int height = lb_image.getIcon().getIconHeight() - 100 * e.getWheelRotation();
-			int poiX = (pl_image.getWidth() - width) / 2;
-			int poiY = (pl_image.getHeight() - height) / 2;
-			ImageTool imgTool = new ImageTool(curImgFile.getAbsolutePath(), width, height);
-			lb_image.setIcon(imgTool.getScaledIcon());
-			pl_image.add(lb_image);
-			lb_image.setBounds(poiX, poiY, width, height);
-			pl_image.repaint();
-			pl_image.revalidate();
-		}
+        @Override
+        public void mouseWheelMoved(MouseWheelEvent e) {
+            int width = lb_image.getIcon().getIconWidth() - 100 * e.getWheelRotation();
+            int height = lb_image.getIcon().getIconHeight() - 100 * e.getWheelRotation();
+            int poiX = (pl_image.getWidth() - width) / 2;
+            int poiY = (pl_image.getHeight() - height) / 2;
+            ImageTool imgTool = new ImageTool(curImgFile.getAbsolutePath(), width, height);
+            lb_image.setIcon(imgTool.getScaledIcon());
+            pl_image.add(lb_image);
+            lb_image.setBounds(poiX, poiY, width, height);
+            pl_image.repaint();
+            pl_image.revalidate();
+        }
 
-		int lbX, lbY;
+        int lbX, lbY;
 
-		@Override
-		public void mousePressed(MouseEvent e) {
-			lbX = e.getX();
-			lbY = e.getY();
-			if (e.getSource() == frame) {
-				frame.requestFocus();
-			}
-			if(e.getSource() == lb_count) {
-				lb_count.setEditable(true);
-			}
-		}
+        @Override
+        public void mousePressed(MouseEvent e) {
+            lbX = e.getX();
+            lbY = e.getY();
+            if (e.getSource() == frame) {
+                frame.requestFocus();
+            }
+            if (e.getSource() == lb_count) {
+                lb_count.setEditable(true);
+            }
+        }
 
-		@Override
-		public void mouseDragged(MouseEvent e) {
-			int x = e.getX() - lbX;
-			int y = e.getY() - lbY;
-			lb_image.setBounds(lb_image.getX() + x, lb_image.getY() + y, lb_image.getIcon().getIconWidth(),
-					lb_image.getIcon().getIconHeight());
-			// print("lb:" + lbX + ":lbY:" + lbY + ": x: " + x + ": y: " + y);
-			// print(lb_image.getX() + ":" + lb_image.getY());
-			pl_image.repaint();
-			pl_image.revalidate();
-		}
-	}
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            int x = e.getX() - lbX;
+            int y = e.getY() - lbY;
+            lb_image.setBounds(lb_image.getX() + x, lb_image.getY() + y, lb_image.getIcon().getIconWidth(),
+                    lb_image.getIcon().getIconHeight());
+            // print("lb:" + lbX + ":lbY:" + lbY + ": x: " + x + ": y: " + y);
+            // print(lb_image.getX() + ":" + lb_image.getY());
+            pl_image.repaint();
+            pl_image.revalidate();
+        }
+    }
 }

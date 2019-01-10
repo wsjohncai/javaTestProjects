@@ -35,11 +35,11 @@ public class DeleteChar {
 	public void Op(String fp, String s) {
 		f = new File(fp);
 		if(!f.exists()) {
-			System.out.println("ÎÄ¼ş²»´æÔÚ£¡");
+			System.out.println("æ–‡ä»¶ä¸å­˜åœ¨ï¼");
 			return;
 		}
 		if(s==null) {
-			System.out.println("ÒªÉ¾³ıµÄ×Ö·û´®Îª¿Õ£¡");
+			System.out.println("è¦åˆ é™¤çš„å­—ç¬¦ä¸²ä¸ºç©ºï¼");
 			return;
 		}
 		Pattern p = null;
@@ -53,7 +53,7 @@ public class DeleteChar {
 				Matcher match = p.matcher(s1);
 					System.out.println(match.replaceAll("b")); //
 			}
-			System.out.println("É¾³ı³É¹¦£¡");
+			System.out.println("åˆ é™¤æˆåŠŸï¼");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

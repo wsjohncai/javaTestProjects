@@ -10,7 +10,7 @@ public class BytetoInt {
 			i--;
 		}
 
-		// ×ª»»Îª²¹ÂëÐÎÊ½
+		// è½¬æ¢ä¸ºè¡¥ç å½¢å¼
 		if (num[0] == 1) {
 			int j = 7;
 			while (j > 0) {
@@ -33,7 +33,7 @@ public class BytetoInt {
 			} else num[7]=1;
 		}
 
-		// ¼ÆËãÖµ
+		// è®¡ç®—å€¼
 		i = 7;
 		while (i > 0) {
 			temp = num[i];

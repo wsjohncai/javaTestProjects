@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/httpclient" />
+      <root url="file://$PROJECT_DIR$/lib/json" />
+      <root url="file://$PROJECT_DIR$/lib/jre/lib/ext" />
+      <root url="file://$PROJECT_DIR$/lib/mysqlConnector" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/httpclient" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/jre/lib/ext" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/json" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/mysqlConnector" recursive="false" />
+  </library>
+</component>

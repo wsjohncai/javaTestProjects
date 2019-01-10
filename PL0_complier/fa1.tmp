@@ -1,0 +1,33 @@
+Input pl/0 file?   y
+0 var r, h, len, a1, a2, volumn;
+
+1 
+
+1 begin
+
+2 	read(r);
+
+4 	read(h);
+
+6 	
+
+6 	len := 2 * 3 * r;
+
+12 	a1 := 3 * r * r;
+
+18 	a2 := a1 + a1 + len * h;
+
+26 	volumn := a1 * h;
+
+30 	
+
+30 	write(len);
+
+33 	write(a1);
+
+36 	write(a2);
+
+39 	write(volumn);
+
+42 end.
+

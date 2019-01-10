@@ -7,7 +7,7 @@ import jpcap.packet.*;
 public class DataCatcher {
 
 	public static void main(String[] args) {
-		final NetworkInterface[] devices = JpcapCaptor.getDeviceList(); // 获取设备列表
+		final NetworkInterface[] devices = JpcapCaptor.getDeviceList(); // 鑾峰彇璁惧鍒楄〃
 		// for(NetworkInterface i: devices) {
 		// System.out.println(i.description);
 		// NetworkInterfaceAddress[] addresses = i.addresses;
